@@ -1,0 +1,81 @@
+.button-header {
+  background-color: cornflowerblue;
+  color: yellow;
+  height: 50px;
+  width: 70%;
+}
+.button-img {
+  height: 800px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid #dbe4ed;
+}
+.button-header1 {
+  background-color: #327ebd;
+  color: white;
+  height: 50px;
+  width: 100%;
+}
+.button-header2 {
+  background-color: #327ebd;
+  color: white;
+  height: 50px;
+  width: 100%;
+}
+.button-container {
+  height: 400px;
+  width: 60%;
+  
+}
+.button-container1 {
+  height: 800px;
+  width: 60%;
+}
+.button-high-container {
+  height: 4500px;
+  width: 100%;
+}
+.button-high-container1 {
+  height: 3300px;
+  width: 100%;
+}
+.button-left-container {
+  
+  right: 20px;
+  width: 22%;
+}
+.button-right-container2 {
+  position : absolute;
+  right: 20px;
+  width: 22%;
+}
+.button-right-container {
+  position: absolute;
+  background-color: lightblue;
+  right: 20px;
+  width: 22%;
+  border: 1px solid blue;
+  padding: 20px;
+}
+.button-right-container1 {
+  position: absolute;
+  right: 60px;
+  width: 40%;
+  padding: 60px;
+}
+.button-component-holder {
+	border: 1px solid #327ebd;
+	background-color: white;
+
+	h4 {
+		color: #327ebd;
+		margin: 14px 0;
+	}
+
+	mat-divider {
+		margin-bottom: 10px;
+	}
+  
+}
+

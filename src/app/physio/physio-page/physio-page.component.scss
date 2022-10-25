@@ -1,0 +1,76 @@
+input[type='text'],
+select {
+  width: 250%;
+  padding: 5px 10px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input.es {
+  width: 100%;
+  padding: 50px 100px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input.extra {
+  width: 400%;
+  padding: 20px 40px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+input.text1 {
+  width: 40%;
+  padding: 5px 10px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+input.text2 {
+  width: 70%;
+  padding: 5px 10px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+input.extra1 {
+  width: 400%;
+  padding: 40px 80px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+table.Border {
+  border-collapse: collapse;
+}
+table.Border td,
+table.Border th {
+  border: 1px solid black;
+  border-radius: 10px;
+}
+
+.example-full-width {
+  width: 100%;
+}
+.example-full-width1 {
+  width: 250%;
+}
+.example-full-width2 {
+  width: 400%;
+}

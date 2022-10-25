@@ -1,0 +1,1541 @@
+<div
+  fxLayout="column"
+  class="components-container-gt-xs"
+  [ngClass]="{ xs: 'components-container-xs' }"
+  fxLayoutGap="20px"
+>
+  <div class="button-high-container" *ngIf="department$ | async as department">
+    <mat-toolbar>
+      <span>{{ department.deptName | uppercase }}</span>
+    </mat-toolbar>
+    <form [formGroup]="form">
+      <mat-stepper [linear]="isLinear" #stepper>
+        <mat-step [stepControl]="form.controls.patientDetails"> </mat-step>
+        <mat-step [stepControl]="secondFormGroup" label="Subjective">
+          <form [formGroup]="secondFormGroup">
+            <!-- <ng-template matStepLabel>Subjective</ng-template> -->
+            <table>
+              <tr>
+                <td><mat-panel-title> Sport Description</mat-panel-title></td>
+              </tr>
+              <tr>
+                <td><mat-panel-title> Competition History</mat-panel-title></td>
+                <td>
+                  <mat-form-field
+                    class="example-full-width1"
+                    appearance="outline"
+                  >
+                    <mat-label> Competition History</mat-label>
+                    <input
+                      matInput
+                      formControlName="secondCtrl"
+                      placeholder=" Competition History"
+                    />
+                  </mat-form-field>
+                </td>
+              </tr>
+              <tr>
+                <td><mat-panel-title> Weight Category </mat-panel-title></td>
+                <td>
+                  <mat-form-field
+                    class="example-full-width1"
+                    appearance="outline"
+                  >
+                    <mat-label> Weight Category</mat-label>
+                    <input
+                      matInput
+                      formControlName="secondCtrl"
+                      placeholder="Weight Category"
+                    />
+                  </mat-form-field>
+                </td>
+              </tr>
+              <tr>
+                <td><mat-panel-title> Dominent Hand/Leg</mat-panel-title></td>
+                <td>
+                  <mat-form-field
+                    class="example-full-width1"
+                    appearance="outline"
+                  >
+                    <mat-label> Dominent Hand/Leg</mat-label>
+                    <input
+                      matInput
+                      formControlName="secondCtrl"
+                      placeholder="Dominent Hand/Leg"
+                    />
+                  </mat-form-field>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <mat-panel-title
+                    >Number of Matches in the Last 12 Months</mat-panel-title
+                  >
+                </td>
+                <td>
+                  <mat-form-field
+                    class="example-full-width1"
+                    appearance="outline"
+                  >
+                    <mat-label>
+                      Number of Matches in the Last 12 Months</mat-label
+                    >
+                    <input
+                      matInput
+                      formControlName="secondCtrl"
+                      placeholder=" Number of Matches in the Last 12 Months"
+                    />
+                  </mat-form-field>
+                </td>
+              </tr>
+              <tr>
+                <td><mat-panel-title> Nature of Ground</mat-panel-title></td>
+                <td>
+                  <mat-form-field
+                    class="example-full-width1"
+                    appearance="outline"
+                  >
+                    <mat-label> Nature of Ground</mat-label>
+                    <input
+                      matInput
+                      formControlName="secondCtrl"
+                      placeholder=" Nature of Ground"
+                    />
+                  </mat-form-field>
+                </td>
+              </tr>
+              <tr>
+                <td><mat-panel-title> Training Period</mat-panel-title></td>
+                <td>
+                  <mat-form-field
+                    class="example-full-width1"
+                    appearance="outline"
+                  >
+                    <mat-label> Training Period</mat-label>
+                    <input
+                      matInput
+                      formControlName="secondCtrl"
+                      placeholder="Training Period"
+                    />
+                  </mat-form-field>
+                </td>
+              </tr>
+              <tr>
+                <td><mat-panel-title>Breaks</mat-panel-title></td>
+                <td>
+                  <mat-form-field
+                    class="example-full-width1"
+                    appearance="outline"
+                  >
+                    <mat-label> Breaks</mat-label>
+                    <input
+                      matInput
+                      formControlName="secondCtrl"
+                      placeholder="Breaks"
+                    />
+                  </mat-form-field>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <mat-panel-title
+                    >Time Lost from training due to
+                    injury/tratment/surgeries</mat-panel-title
+                  >
+                </td>
+                <td>
+                  <mat-form-field
+                    class="example-full-width1"
+                    appearance="outline"
+                  >
+                    <mat-label>
+                      Time Lost from training due to
+                      injury/tratment/surgeries</mat-label
+                    >
+                    <input
+                      matInput
+                      formControlName="secondCtrl"
+                      placeholder="Time Lost from training due to injury/tratment/surgeries"
+                    />
+                  </mat-form-field>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <mat-panel-title
+                    >Previous sport related injuries and
+                    tratments</mat-panel-title
+                  >
+                </td>
+                <td>
+                  <mat-form-field
+                    class="example-full-width1"
+                    appearance="outline"
+                  >
+                    <mat-label>
+                      Previous sport related injuries and tratments</mat-label
+                    >
+                    <input
+                      matInput
+                      formControlName="secondCtrl"
+                      placeholder="Previous sport related injuries and tratments"
+                    />
+                  </mat-form-field>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <mat-panel-title>Disability / external aids</mat-panel-title>
+                </td>
+                <td>
+                  <mat-form-field
+                    class="example-full-width1"
+                    appearance="outline"
+                  >
+                    <mat-label> Disability / external aids</mat-label>
+                    <input
+                      matInput
+                      formControlName="secondCtrl"
+                      placeholder="Disability / external aids"
+                    />
+                  </mat-form-field>
+                </td>
+              </tr>
+            </table>
+            <p>Subjective Assessment :</p>
+            <br />
+            <p>Body Chart</p>
+            <div class="button-img">
+              <button mat-raised-button color="primary">Edit</button>
+              <img width="400" src="./assets/BC.jpg" />
+              <link
+                href="https://fonts.googleapis.com/icon?family=Material+Icons"
+                rel="stylesheet"
+              />
+            </div>
+
+            <table>
+              <tr>
+                <td>
+                  <mat-panel-title>
+                    History of Current Complaints:</mat-panel-title
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td><mat-panel-title> Presented During</mat-panel-title></td>
+              </tr>
+              <tr>
+                <td>
+                  <input
+                    type="checkbox"
+                    id="Match"
+                    name="Match"
+                    value="Match"
+                  />
+                  <label for="Match"> Match</label><br />
+                  <input
+                    type="checkbox"
+                    id="pre Competition"
+                    name="pre Competition"
+                    value="pre Competition"
+                  />
+                  <label for="pre Competition"> pre Competition</label><br />
+                  <input
+                    type="checkbox"
+                    id="Competition period"
+                    name="Competition period"
+                    value="Competition period"
+                  />
+                  <label for="Competition period"> Competition period</label
+                  ><br />
+                  <input
+                    type="checkbox"
+                    id="Post Competition period"
+                    name="Post Competition perio"
+                    value="Post Competition perio"
+                  />
+                  <label for="Post Competition perio">
+                    Post Competition perio</label
+                  ><br />
+                </td>
+              </tr>
+            </table>
+            <table>
+              <tr>
+                <td>
+                  <mat-panel-title> Onset/Duration/Progress</mat-panel-title>
+                </td>
+                <td>
+                  <mat-form-field
+                    class="example-full-width1"
+                    appearance="outline"
+                  >
+                    <mat-label> Onset/Duration/Progress</mat-label>
+                    <input
+                      matInput
+                      formControlName="secondCtrl"
+                      placeholder=" Onset/Duration/Progress"
+                    />
+                  </mat-form-field>
+                </td>
+              </tr>
+              <tr>
+                <td><mat-panel-title> Pain Severity</mat-panel-title></td>
+                <td>
+                  <mat-form-field
+                    class="example-full-width1"
+                    appearance="outline"
+                  >
+                    <mat-label> Pain Severity</mat-label>
+                    <input
+                      matInput
+                      formControlName="secondCtrl"
+                      placeholder="Pain Severity"
+                    />
+                  </mat-form-field>
+                </td>
+              </tr>
+
+              <tr>
+                <td><mat-panel-title>Character</mat-panel-title></td>
+                <td>
+                  <mat-form-field
+                    class="example-full-width1"
+                    appearance="outline"
+                  >
+                    <mat-label> Character</mat-label>
+                    <input
+                      matInput
+                      formControlName="secondCtrl"
+                      placeholder=" Character"
+                    />
+                  </mat-form-field>
+                </td>
+              </tr>
+              <tr>
+                <td><mat-panel-title> Modifying Factors</mat-panel-title></td>
+                <td>
+                  <mat-form-field
+                    class="example-full-width1"
+                    appearance="outline"
+                  >
+                    <mat-label> Modifying Factors</mat-label>
+                    <input
+                      matInput
+                      formControlName="secondCtrl"
+                      placeholder="Modifying Factors"
+                    />
+                  </mat-form-field>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <mat-form-field
+                    class="example-full-width1"
+                    appearance="outline"
+                  >
+                    <mat-label>
+                      Option to upload physical disability
+                      questionnaire</mat-label
+                    >
+                    <textarea
+                      matInput
+                      formControlName="secondCtrl"
+                      placeholder=" Option to upload physical disability questionnaire"
+                      required
+                    ></textarea>
+
+                    <input
+                      type="file"
+                      class="file-input"
+                      (change)="onFileSelected($event)"
+                      #fileUpload
+                    />
+                  </mat-form-field>
+                </td>
+              </tr>
+            </table>
+            <mat-panel-title>Associated Complaints or Symptoms</mat-panel-title>
+            <table class="Border">
+              <tr>
+                <td>General</td>
+                <td>no</td>
+                <td>yes within 4 weeks</td>
+                <td>yes prior to 4 weeks</td>
+              </tr>
+              <tr>
+                <td>Flu</td>
+
+                <td>
+                  <input matInput formControlName="secondCtrl" placeholder="" />
+                </td>
+                <td>
+                  <input matInput formControlName="secondCtrl" placeholder="" />
+                </td>
+                <td>
+                  <input matInput formControlName="secondCtrl" placeholder="" />
+                </td>
+              </tr>
+              <tr>
+                <td>Infections / viral</td>
+
+                <td>
+                  <input matInput formControlName="secondCtrl" placeholder="" />
+                </td>
+                <td>
+                  <input matInput formControlName="secondCtrl" placeholder="" />
+                </td>
+                <td>
+                  <input matInput formControlName="secondCtrl" placeholder="" />
+                </td>
+              </tr>
+              <tr>
+                <td>Heat illness</td>
+
+                <td>
+                  <input matInput formControlName="secondCtrl" placeholder="" />
+                </td>
+                <td>
+                  <input matInput formControlName="secondCtrl" placeholder="" />
+                </td>
+                <td>
+                  <input matInput formControlName="secondCtrl" placeholder="" />
+                </td>
+              </tr>
+              <tr>
+                <td>Concussion</td>
+
+                <td>
+                  <input matInput formControlName="secondCtrl" placeholder="" />
+                </td>
+                <td>
+                  <input matInput formControlName="secondCtrl" placeholder="" />
+                </td>
+                <td>
+                  <input matInput formControlName="secondCtrl" placeholder="" />
+                </td>
+              </tr>
+              <tr>
+                <td>Allergies</td>
+
+                <td>
+                  <input matInput formControlName="secondCtrl" placeholder="" />
+                </td>
+                <td>
+                  <input matInput formControlName="secondCtrl" placeholder="" />
+                </td>
+                <td>
+                  <input matInput formControlName="secondCtrl" placeholder="" />
+                </td>
+              </tr>
+              <tr>
+                <td>Diarrhoea / other illness</td>
+
+                <td>
+                  <input matInput formControlName="secondCtrl" placeholder="" />
+                </td>
+                <td>
+                  <input matInput formControlName="secondCtrl" placeholder="" />
+                </td>
+                <td>
+                  <input matInput formControlName="secondCtrl" placeholder="" />
+                </td>
+              </tr>
+              <tr>
+                <td>Nutritional Supplements</td>
+
+                <td>
+                  <input matInput formControlName="secondCtrl" placeholder="" />
+                </td>
+                <td>
+                  <input matInput formControlName="secondCtrl" placeholder="" />
+                </td>
+                <td>
+                  <input matInput formControlName="secondCtrl" placeholder="" />
+                </td>
+              </tr>
+              <br />
+              <mat-panel-title>Cardiac and Respiratory system</mat-panel-title>
+              <tr>
+                <td></td>
+                <td>Within last 4 Weeks<br />At rest / with activity</td>
+                <td>prior to last 4 weeks<br />At rest / with activity</td>
+              </tr>
+              <tr>
+                <td>Chest pain /tightness</td>
+                <td>
+                  <input matInput formControlName="secondCtrl" placeholder="" />
+                </td>
+                <td>
+                  <input matInput formControlName="secondCtrl" placeholder="" />
+                </td>
+              </tr>
+              <tr>
+                <td>Shortness of Breath</td>
+                <td>
+                  <input matInput formControlName="secondCtrl" placeholder="" />
+                </td>
+                <td>
+                  <input matInput formControlName="secondCtrl" placeholder="" />
+                </td>
+              </tr>
+              <tr>
+                <td>Cough</td>
+                <td>
+                  <input matInput formControlName="secondCtrl" placeholder="" />
+                </td>
+                <td>
+                  <input matInput formControlName="secondCtrl" placeholder="" />
+                </td>
+              </tr>
+              <tr>
+                <td>Dizziness</td>
+                <td>
+                  <input matInput formControlName="secondCtrl" placeholder="" />
+                </td>
+                <td>
+                  <input matInput formControlName="secondCtrl" placeholder="" />
+                </td>
+              </tr>
+              <tr>
+                <td>Syncope</td>
+                <td>
+                  <input matInput formControlName="secondCtrl" placeholder="" />
+                </td>
+                <td>
+                  <input matInput formControlName="secondCtrl" placeholder="" />
+                </td>
+              </tr>
+              <tr>
+                <td>Hypertension</td>
+                <td>
+                  <input matInput formControlName="secondCtrl" placeholder="" />
+                </td>
+                <td>
+                  <input matInput formControlName="secondCtrl" placeholder="" />
+                </td>
+              </tr>
+              <tr>
+                <td>Murmurs</td>
+                <td>
+                  <input matInput formControlName="secondCtrl" placeholder="" />
+                </td>
+                <td>
+                  <input matInput formControlName="secondCtrl" placeholder="" />
+                </td>
+              </tr>
+              <tr>
+                <td>Breath Sounds</td>
+                <td>
+                  <input matInput formControlName="secondCtrl" placeholder="" />
+                </td>
+                <td>
+                  <input matInput formControlName="secondCtrl" placeholder="" />
+                </td>
+              </tr>
+              <tr>
+                <td>Lipid Profile</td>
+                <td>
+                  <input matInput formControlName="secondCtrl" placeholder="" />
+                </td>
+                <td>
+                  <input matInput formControlName="secondCtrl" placeholder="" />
+                </td>
+              </tr>
+              <tr>
+                <td>More tired than other players</td>
+                <td>
+                  <input matInput formControlName="secondCtrl" placeholder="" />
+                </td>
+                <td>
+                  <input matInput formControlName="secondCtrl" placeholder="" />
+                </td>
+              </tr>
+              <tr>
+                <td>Advised to discontinue sport</td>
+                <td>
+                  <input matInput formControlName="secondCtrl" placeholder="" />
+                </td>
+                <td>
+                  <input matInput formControlName="secondCtrl" placeholder="" />
+                </td>
+              </tr>
+            </table>
+            <table>
+              <tr>
+                <td><mat-panel-title>Medical History</mat-panel-title></td>
+              </tr>
+              <tr>
+                <td>
+                  <mat-panel-title>
+                    <input type="checkbox" id="HTN" name="HTN" value="HTN" />
+                    <label for="HTN"> HTN</label><br />
+                  </mat-panel-title>
+                </td>
+
+                <td>
+                  <mat-panel-title>
+                    <input
+                      type="checkbox"
+                      id="Asthma"
+                      name="Asthma"
+                      value="Asthma"
+                    />
+                    <label for="Asthma"> Asthma</label><br />
+                  </mat-panel-title>
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  <mat-panel-title>
+                    <input
+                      type="checkbox"
+                      id="Nutritional Disorders"
+                      name="Nutritional Disorders"
+                      value="Nutritional Disorders"
+                    />
+                    <label for="Nutritional Disorders">
+                      Nutritional Disorders</label
+                    ><br />
+                  </mat-panel-title>
+                </td>
+
+                <td>
+                  <mat-panel-title>
+                    <input
+                      type="checkbox"
+                      id="Diabetes"
+                      name="Diabetes"
+                      value="Diabetes"
+                    />
+                    <label for="Diabetes"> Diabetes</label><br />
+                  </mat-panel-title>
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  <mat-panel-title>
+                    <input
+                      type="checkbox"
+                      id="Heart/Lungs"
+                      name="Heart/Lungs"
+                      value="Heart/Lungs"
+                    />
+                    <label for="Heart/Lungs"> Heart/Lungs</label><br />
+                  </mat-panel-title>
+                </td>
+
+                <td>
+                  <mat-panel-title>
+                    <input
+                      type="checkbox"
+                      id="Implants"
+                      name="Implants"
+                      value="Implants"
+                    />
+                    <label for="Implants"> Implants</label><br />
+                  </mat-panel-title>
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  <mat-panel-title>
+                    <input
+                      type="checkbox"
+                      id="Cancer"
+                      name="Cancer"
+                      value="Cancer"
+                    />
+                    <label for="Cancer"> Cancer</label><br />
+                  </mat-panel-title>
+                </td>
+
+                <td>
+                  <mat-panel-title>
+                    <input
+                      type="checkbox"
+                      id="Surgeries"
+                      name="Surgeries"
+                      value="Surgeries"
+                    />
+                    <label for="Surgeries"> Surgeries</label><br />
+                  </mat-panel-title>
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  <mat-panel-title>
+                    <input
+                      type="checkbox"
+                      id="External Aids"
+                      name="External Aids"
+                      value="External Aids"
+                    />
+                    <label for="External Aids"> External Aids</label><br />
+                  </mat-panel-title>
+                </td>
+
+                <td>
+                  <mat-panel-title>
+                    <input
+                      type="checkbox"
+                      id="Pregnancy"
+                      name="Pregnancy"
+                      value="Pregnancy"
+                    />
+                    <label for="Pregnancy"> Pregnancy</label><br />
+                  </mat-panel-title>
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  <mat-panel-title>
+                    <input
+                      type="checkbox"
+                      id="Epilepsy"
+                      name="Epilepsy"
+                      value="Epilepsys"
+                    />
+                    <label for="Epilepsy"> Epilepsy</label><br />
+                  </mat-panel-title>
+                </td>
+
+                <td>
+                  <mat-panel-title>
+                    <input
+                      type="checkbox"
+                      id="counselling / Psychiatric treatment"
+                      name="counselling / Psychiatric treatment"
+                      value="counselling / Psychiatric treatment"
+                    />
+                    <label for="counselling / Psychiatric treatment">
+                      counselling / Psychiatric treatment</label
+                    ><br />
+                  </mat-panel-title>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <mat-form-field
+                    class="example-full-width2"
+                    appearance="outline"
+                  >
+                    <mat-label>Describe if applicable</mat-label>
+                    <textarea
+                      matInput
+                      formControlName="secondCtrl"
+                      placeholder="Describe if applicable"
+                    ></textarea>
+                  </mat-form-field>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <mat-panel-title
+                    >Current and Past Medications</mat-panel-title
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <mat-panel-title>
+                    <input
+                      type="checkbox"
+                      id="NSAIDs"
+                      name="NSAIDs"
+                      value="NSAIDs"
+                    />
+                    <label for="NSAIDs"> NSAIDs</label><br />
+                  </mat-panel-title>
+                </td>
+
+                <td>
+                  <mat-panel-title>
+                    <input
+                      type="checkbox"
+                      id="Asthma"
+                      name="Asthma"
+                      value="Asthma"
+                    />
+                    <label for="Asthma"> Asthma</label><br />
+                  </mat-panel-title>
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  <mat-panel-title>
+                    <input
+                      type="checkbox"
+                      id="Antihypertensives"
+                      name="Antihypertensives"
+                      value="Antihypertensives"
+                    />
+                    <label for="Antihypertensives"> Antihypertensives</label
+                    ><br />
+                  </mat-panel-title>
+                </td>
+
+                <td>
+                  <mat-panel-title>
+                    <input
+                      type="checkbox"
+                      id="Lipid Lowering"
+                      name="Lipid Lowering"
+                      value="Lipid Lowering"
+                    />
+                    <label for="Lipid Lowering"> Lipid Lowering</label><br />
+                  </mat-panel-title>
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  <mat-panel-title>
+                    <input
+                      type="checkbox"
+                      id="Anti Diabatic"
+                      name="Anti Diabatic"
+                      value="Anti Diabatic"
+                    />
+                    <label for="Anti Diabatic"> Anti Diabatic</label><br />
+                  </mat-panel-title>
+                </td>
+
+                <td>
+                  <mat-panel-title>
+                    <input
+                      type="checkbox"
+                      id="Psychotropic"
+                      name="Psychotropic"
+                      value="Psychotropic"
+                    />
+                    <label for="Psychotropic"> Psychotropic</label><br />
+                  </mat-panel-title>
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  <mat-panel-title>
+                    <input
+                      type="checkbox"
+                      id="others"
+                      name="others"
+                      value="others"
+                    />
+                    <label for="others"> Others</label><br />
+                  </mat-panel-title>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <mat-form-field
+                    class="example-full-width2"
+                    appearance="outline"
+                  >
+                    <mat-label>Describe if applicable</mat-label>
+                    <textarea
+                      matInput
+                      formControlName="secondCtrl"
+                      placeholder="Describe if applicable"
+                    ></textarea>
+                  </mat-form-field>
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  <mat-panel-title>
+                    current and past Investigations</mat-panel-title
+                  >
+                </td>
+                <td>
+                  <mat-form-field
+                    class="example-full-width2"
+                    appearance="outline"
+                  >
+                    <mat-label>current and past Investigations</mat-label>
+                    <textarea
+                      matInput
+                      formControlName="secondCtrl"
+                      placeholder="current and past Investigations"
+                    ></textarea>
+                  </mat-form-field>
+                </td>
+              </tr>
+              <tr>
+                <td><mat-panel-title>Family History</mat-panel-title></td>
+              </tr>
+              <tr>
+                <td>
+                  <input type="checkbox" id="HTN" name="HTN" value="HTN" />
+                  <label for="HTN">HTN</label><br />
+                  <input
+                    type="checkbox"
+                    id="Heart"
+                    name="Heart"
+                    value="Heart"
+                  />
+                  <label for="Heart"> Heart</label><br />
+                  <input
+                    type="checkbox"
+                    id="Cancer"
+                    name="Cancer"
+                    value="Cancer"
+                  />
+                  <label for="Cancer"> Cancer</label><br />
+                </td>
+                <td>
+                  <input
+                    type="checkbox"
+                    id="Diabetes"
+                    name="Diabetes"
+                    value="Diabetes"
+                  />
+                  <label for="Diabetes"> Diabetes</label><br />
+                  <input
+                    type="checkbox"
+                    id="Storke"
+                    name="Storke"
+                    value="Storke"
+                  />
+                  <label for="Storke"> Storke</label><br />
+                  <input
+                    type="checkbox"
+                    id="others"
+                    name="others"
+                    value="others"
+                  />
+                  <label for="others"> Others</label><br />
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <mat-form-field
+                    class="example-full-width2"
+                    appearance="outline"
+                  >
+                    <mat-label>Describe if applicable</mat-label>
+                    <textarea
+                      matInput
+                      formControlName="secondCtrl"
+                      placeholder="Describe if applicable"
+                    ></textarea>
+                  </mat-form-field>
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  <mat-panel-title>Diet Specializations:</mat-panel-title>
+                </td>
+                <td>
+                  <mat-form-field
+                    class="example-full-width2"
+                    appearance="outline"
+                  >
+                    <mat-label> Drugs,alcohol,smoking</mat-label>
+                    <input
+                      matInput
+                      formControlName="secondCtrl"
+                      placeholder="Drugs,alcohol,smoking"
+                    />
+                  </mat-form-field>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <mat-panel-title
+                    >Physical activity /training details</mat-panel-title
+                  >
+                </td>
+                <td>
+                  <mat-form-field
+                    class="example-full-width2"
+                    appearance="outline"
+                  >
+                    <mat-label> Physical activity /training details</mat-label>
+                    <input
+                      matInput
+                      formControlName="secondCtrl"
+                      placeholder="Physical activity /training details"
+                    />
+                  </mat-form-field>
+                </td>
+              </tr>
+              <tr>
+                <td><mat-panel-title>Socio Economic</mat-panel-title></td>
+                <td>
+                  <mat-form-field
+                    class="example-full-width2"
+                    appearance="outline"
+                  >
+                    <mat-label> Socio Economic</mat-label>
+                    <input
+                      matInput
+                      formControlName="secondCtrl"
+                      placeholder="Socio Economic"
+                    />
+                  </mat-form-field>
+                </td>
+              </tr>
+              <tr>
+                <td><mat-panel-title>Employment</mat-panel-title></td>
+                <td>
+                  <mat-form-field
+                    class="example-full-width2"
+                    appearance="outline"
+                  >
+                    <mat-label> Employment</mat-label>
+                    <input
+                      matInput
+                      formControlName="secondCtrl"
+                      placeholder="Employment"
+                    />
+                  </mat-form-field>
+                </td>
+              </tr>
+              <tr>
+                <td><mat-panel-title>Psycological</mat-panel-title></td>
+                <td>
+                  <mat-form-field
+                    class="example-full-width2"
+                    appearance="outline"
+                  >
+                    <mat-label> Psycological</mat-label>
+                    <input
+                      matInput
+                      formControlName="secondCtrl"
+                      placeholder="Psycological"
+                    />
+                  </mat-form-field>
+                </td>
+              </tr>
+            </table>
+
+            <div mat-dialog-actions align="end">
+              <button
+                mat-button
+                mat-raised-button
+                color="primary"
+                style="margin-right: 16px"
+                (click)="onBack()"
+              >
+                Back
+              </button>
+              <button
+                mat-button
+                mat-raised-button
+                color="primary"
+                style="margin-right: 16px"
+                (click)="onReset()"
+              >
+                Reset
+              </button>
+              <button
+                mat-button
+                mat-raised-button
+                color="primary"
+                style="margin-right: 16px"
+                matStepperNext
+              >
+                Next
+              </button>
+            </div>
+          </form>
+        </mat-step>
+        <!-- #docregion label -->
+        <mat-step [stepControl]="thirdFormGroup" label="Objective">
+          <!-- #enddocregion label -->
+          <form [formGroup]="thirdFormGroup">
+            <table class="Border">
+              <tr>
+                <td>Static Posture Assessment</td>
+                <td>Right</td>
+                <td>Left</td>
+              </tr>
+              <tr>
+                <td>Anterior view</td>
+                <td><input class="text1" type="text" placeholder="" /></td>
+                <td><input class="text1" type="text" placeholder="" /></td>
+              </tr>
+              <tr>
+                <td>Posterior view</td>
+                <td><input class="text1" type="text" placeholder="" /></td>
+                <td><input class="text1" type="text" placeholder="" /></td>
+              </tr>
+              <tr>
+                <td>Lateral view</td>
+                <td><input class="text1" type="text" placeholder="" /></td>
+                <td><input class="text1" type="text" placeholder="" /></td>
+              </tr>
+              <tr>
+                <mat-form-field
+                  class="example-full-width2"
+                  appearance="outline"
+                >
+                  <mat-label> Comments</mat-label>
+                  <textarea
+                    matInput
+                    formControlName="thirdCtrl"
+                    placeholder="Comments"
+                  >
+                  </textarea>
+                </mat-form-field>
+              </tr>
+              <tr>
+                <br />
+              </tr>
+
+              <tr>
+                <td>Dynamic Posture Assessment</td>
+                <td colspan="2">Right</td>
+                <td colspan="2">Left</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td>Anterior</td>
+                <td>Lateral</td>
+                <td>Anterior</td>
+                <td>Lateral</td>
+              </tr>
+              <tr>
+                <td>Overhead Sqaut Test</td>
+                <td><input class="text1" type="text" placeholder="" /></td>
+                <td><input class="text1" type="text" placeholder="" /></td>
+                <td><input class="text1" type="text" placeholder="" /></td>
+                <td><input class="text1" type="text" placeholder="" /></td>
+              </tr>
+              <tr>
+                <td>Single Leg Stance</td>
+                <td><input class="text1" type="text" placeholder="" /></td>
+                <td><input class="text1" type="text" placeholder="" /></td>
+                <td><input class="text1" type="text" placeholder="" /></td>
+                <td><input class="text1" type="text" placeholder="" /></td>
+              </tr>
+              <tr>
+                <td>Push Pull tests</td>
+                <td><input class="text1" type="text" placeholder="" /></td>
+                <td><input class="text1" type="text" placeholder="" /></td>
+                <td><input class="text1" type="text" placeholder="" /></td>
+                <td><input class="text1" type="text" placeholder="" /></td>
+              </tr>
+              <tr>
+                <mat-form-field
+                  class="example-full-width2"
+                  appearance="outline"
+                >
+                  <textarea matInput formControlName="thirdCtrl" placeholder="">
+                  </textarea>
+                </mat-form-field>
+              </tr>
+
+              <tr>
+                <mat-panel-title>Gait Assessment :</mat-panel-title>
+                <br />
+                <mat-form-field
+                  class="example-full-width2"
+                  appearance="outline"
+                >
+                  <mat-label>Gait Assessment</mat-label>
+                  <textarea
+                    matInput
+                    formControlName="thirdCtrl"
+                    placeholder="Gait Assessment"
+                  >
+                  </textarea>
+                </mat-form-field>
+              </tr>
+            </table>
+            <table class="Border">
+              <tr>
+                <td>Muscle girth</td>
+                <td>Right</td>
+                <td>Left</td>
+              </tr>
+              <tr>
+                <td>Upper Limb</td>
+                <td><input class="text1" type="text" placeholder="" /></td>
+                <td><input class="text1" type="text" placeholder="" /></td>
+              </tr>
+              <tr>
+                <td>Lower Limb</td>
+                <td><input class="text1" type="text" placeholder="" /></td>
+                <td><input class="text1" type="text" placeholder="" /></td>
+              </tr>
+              <br />
+
+              <tr>
+                <td>Limb Length</td>
+                <td>Right</td>
+                <td>Left</td>
+              </tr>
+              <tr>
+                <td>Upper Limb</td>
+                <td><input class="text1" type="text" placeholder="" /></td>
+                <td><input class="text1" type="text" placeholder="" /></td>
+              </tr>
+              <tr>
+                <td>Lower Limb</td>
+                <td><input class="text1" type="text" placeholder="" /></td>
+                <td><input class="text1" type="text" placeholder="" /></td>
+              </tr>
+              <br />
+            </table>
+            <br />
+
+            <table class="Border">
+              <tr>
+                <td>
+                  <mat-panel-title
+                    >Relevant Soft tissue examination</mat-panel-title
+                  >
+                  <input
+                    class="es"
+                    type="text"
+                    placeholder="Relevant Soft tissue examination"
+                  />
+                </td>
+                <td>
+                  <mat-panel-title
+                    >Relevant Muscle length tests</mat-panel-title
+                  >
+                  <input
+                    class="es"
+                    type="text"
+                    placeholder="Relevant Muscle length tests"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <mat-panel-title
+                    >Relevant Joint/s range of motion</mat-panel-title
+                  >
+                  <input
+                    class="es"
+                    type="text"
+                    placeholder="Relevant Joint/s range of motion"
+                  />
+                </td>
+                <td>
+                  <mat-panel-title
+                    >Relevant Joint special tests</mat-panel-title
+                  >
+                  <input
+                    class="es"
+                    type="text"
+                    placeholder="Relevant Joint special tests"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <mat-panel-title
+                    >Relevant manual muscle testing</mat-panel-title
+                  >
+                  <input
+                    class="es"
+                    type="text"
+                    placeholder="Relevant manual muscle testing"
+                  />
+                </td>
+              </tr>
+            </table>
+            <br />
+            <table class="Border">
+              <tr>
+                <td></td>
+                <td>Right</td>
+                <td>Left</td>
+              </tr>
+              <tr>
+                <td>
+                  <mat-panel-title>Neural Mobility tests</mat-panel-title>
+                </td>
+                <td><input class="es" type="text" placeholder="" /></td>
+                <td><input class="es" type="text" placeholder="" /></td>
+              </tr>
+              <tr>
+                <td>
+                  <mat-panel-title
+                    >Stability and strength tests</mat-panel-title
+                  >
+                </td>
+                <td><input class="es" type="text" placeholder="" /></td>
+                <td><input class="es" type="text" placeholder="" /></td>
+              </tr>
+              <tr>
+                <td>
+                  <mat-panel-title
+                    >Proprioception , Agility tests</mat-panel-title
+                  >
+                </td>
+                <td><input class="es" type="text" placeholder="" /></td>
+                <td><input class="es" type="text" placeholder="" /></td>
+              </tr>
+              <tr>
+                <td>
+                  <mat-panel-title
+                    >Cardiovascular fitness tests</mat-panel-title
+                  >
+                </td>
+                <td><input class="es" type="text" placeholder="" /></td>
+                <td>
+                  <input class="es" type="text" placeholder="" />
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <mat-panel-title>Other Special testing</mat-panel-title>
+                </td>
+                <td><input class="es" type="text" placeholder="" /></td>
+                <td>
+                  <input class="es" type="text" placeholder="" />
+                </td>
+              </tr>
+            </table>
+            <mat-panel-title>Neurological evaluation :</mat-panel-title>
+            <table>
+              <tr>
+                <td>
+                  <input
+                    type="checkbox"
+                    id="reflexes"
+                    name="reflexes"
+                    value="reflexes"
+                  />
+                  <label for="reflexes">reflexes</label><br />
+                  <input
+                    type="checkbox"
+                    id="Sensations"
+                    name="Sensations"
+                    value="Sensations"
+                  />
+                  <label for="Sensations"> Sensations</label><br />
+                  <input
+                    type="checkbox"
+                    id="Headaches"
+                    name="Headaches"
+                    value="Headaches"
+                  />
+                  <label for="Headaches"> Headaches</label><br />
+                </td>
+                <td>
+                  <input
+                    type="checkbox"
+                    id="Vertigo"
+                    name="Vertigo"
+                    value="Vertigo"
+                  />
+                  <label for="Vertigo"> Vertigo</label><br />
+                  <input
+                    type="checkbox"
+                    id="Blow/Bladder"
+                    name="Blow/Bladder"
+                    value="Blow/Bladder"
+                  />
+                  <label for="Blow/Bladder"> Blow/Bladder</label><br />
+                  <input
+                    type="checkbox"
+                    id="others"
+                    name="others"
+                    value="others"
+                  />
+                  <label for="others"> Others</label><br />
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <mat-form-field
+                    class="example-full-width2"
+                    appearance="outline"
+                  >
+                    <mat-label>Describe if applicable</mat-label>
+                    <textarea
+                      matInput
+                      formControlName="secondCtrl"
+                      placeholder="Describe if applicable"
+                    ></textarea>
+                  </mat-form-field>
+                </td>
+              </tr>
+            </table>
+            <div mat-dialog-actions align="end">
+              <button
+                mat-button
+                mat-raised-button
+                color="primary"
+                style="margin-right: 16px"
+                matStepperPrevious
+              >
+                Back
+              </button>
+              <button
+                mat-button
+                mat-raised-button
+                color="primary"
+                style="margin-right: 16px"
+                (click)="stepper.reset()"
+              >
+                Reset
+              </button>
+              <button
+                mat-button
+                mat-raised-button
+                color="primary"
+                style="margin-right: 16px"
+                matStepperNext
+              >
+                Next
+              </button>
+            </div>
+          </form>
+        </mat-step>
+
+        <mat-step [stepControl]="fourthFormGroup" label="Assessment">
+          <!-- #enddocregion label -->
+          <form [formGroup]="fourthFormGroup">
+            <mat-form-field class="example-full-width" appearance="outline">
+              <mat-label
+                >TIPS e.g.Impairments identified,response noted with corrections
+                etc
+              </mat-label>
+              <textarea
+                matInput
+                formControlName="fourthCtrl"
+                placeholder=" TIPS e.g.Impairments identified,response noted with corrections etc  "
+                required
+              ></textarea>
+            </mat-form-field>
+            <div mat-dialog-actions align="end">
+              <button
+                mat-button
+                mat-raised-button
+                color="primary"
+                style="margin-right: 16px"
+                matStepperPrevious
+              >
+                Back
+              </button>
+              <button
+                mat-button
+                mat-raised-button
+                color="primary"
+                style="margin-right: 16px"
+                (click)="stepper.reset()"
+              >
+                Reset
+              </button>
+              <button
+                mat-button
+                mat-raised-button
+                color="primary"
+                style="margin-right: 16px"
+                matStepperNext
+              >
+                Next
+              </button>
+            </div>
+          </form>
+        </mat-step>
+
+        <mat-step [stepControl]="fifthFormGroup" label="Plan">
+          <!-- #enddocregion label -->
+          <form [formGroup]="fifthFormGroup">
+            <p>Short Term Goals</p>
+            <mat-form-field class="example-full-width" appearance="outline">
+              <mat-label> Short Term Goals</mat-label>
+              <textarea
+                matInput
+                formControlName="fifthCtrl"
+                placeholder=" Short Term Goals"
+                required
+              ></textarea>
+            </mat-form-field>
+            <p>Long Term Goals</p>
+            <mat-form-field class="example-full-width" appearance="outline">
+              <mat-label> Long Term Goals</mat-label>
+              <textarea
+                matInput
+                formControlName="fifthCtrl"
+                placeholder=" Long Term Goals"
+                required
+              ></textarea>
+            </mat-form-field>
+            <p>Treatment</p>
+            <mat-form-field class="example-full-width" appearance="outline">
+              <mat-label>
+                Note change in assessment area with the
+                Interventions,Dosage,Frequency,Modifications To Postioning,Home
+                Advice etc
+              </mat-label>
+              <textarea
+                matInput
+                formControlName="fifthCtrl"
+                placeholder="Note change in assessment area with the Interventions,Dosage,Frequency,Modifications To Postioning,Home Advice etc"
+                required
+              ></textarea>
+            </mat-form-field>
+            <p>Return to training plan and Treatment :</p>
+            <mat-form-field class="example-full-width" appearance="outline">
+              <mat-label> Return to training plan and Treatment</mat-label>
+              <textarea
+                matInput
+                formControlName="fifthCtrl"
+                placeholder="Return to training plan and Treatment"
+                required
+              ></textarea>
+            </mat-form-field>
+
+            <div mat-dialog-actions align="end">
+              <button
+                mat-button
+                mat-raised-button
+                color="primary"
+                style="margin-right: 16px"
+                matStepperPrevious
+              >
+                Back
+              </button>
+              <button
+                mat-button
+                mat-raised-button
+                color="primary"
+                style="margin-right: 16px"
+                matStepperNext
+              >
+                Save
+              </button>
+              <button
+                mat-button
+                mat-raised-button
+                color="primary"
+                style="margin-right: 16px"
+                (click)="stepper.reset()"
+              >
+                Reset
+              </button>
+              <button
+                mat-button
+                mat-raised-button
+                color="primary"
+                style="margin-right: 16px"
+                matStepperNext
+              >
+                submit
+              </button>
+            </div>
+          </form>
+        </mat-step>
+      </mat-stepper>
+    </form>
+  </div>
+</div>
