@@ -1,0 +1,847 @@
+<div fxLayout="column" class="components-container-gt-xs" [ngClass.xs]="'components-container-xs'" fxLayoutGap="20px">
+
+	<!--<div fxFlex class="button-component-holder mat-elevation-z4">-->
+	<style>
+		input[type=text], select {
+			width: 250%;
+			padding: 5px 10px;
+			margin: 8px 0;
+			display: inline-block;
+			border: 1px solid #ccc;
+			border-radius: 4px;
+			box-sizing: border-box;
+		}
+    input.es {
+      width: 100%;
+      padding: 50px 100px;
+      margin: 8px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+  
+		input.extra {
+			width: 400%;
+			padding: 20px 40px;
+			margin: 8px 0;
+			display: inline-block;
+			border: 1px solid #ccc;
+			border-radius: 4px;
+			box-sizing: border-box;
+		}
+
+		input.extra1 {
+			width: 400%;
+			padding: 40px 80px;
+			margin: 8px 0;
+			display: inline-block;
+			border: 1px solid #ccc;
+			border-radius: 4px;
+			box-sizing: border-box;
+		}
+		table.Border {
+      border-collapse: collapse;
+    }
+      table.Border td,
+      table.Border th {
+        border: 1px solid black;
+        border-radius: 10px;
+      }
+		.example-full-width {
+  width: 100%;
+}
+.example-full-width1 {
+  width: 250%;
+}
+.example-full-width2 {
+  width: 400%;
+}
+.example-full-width3 {
+  width: 200%;
+}
+	</style>
+
+
+
+
+
+	<div class="button-high-container">
+		<mat-stepper [linear]="isLinear" #stepper>
+			<mat-step [stepControl]="firstFormGroup" >
+				<form [formGroup]="firstFormGroup">
+				<ng-template matStepLabel  >Patient Details</ng-template>
+				<!-- #enddocregion label -->
+
+				<table>
+					<tr>
+						<td>
+							
+							<mat-form-field>
+								<mat-label> Patient Name</mat-label>
+								<input matInput  formControlName="firstCtrl" disabled value="Patient Name">
+							</mat-form-field>
+						</td>
+						
+						<td> <mat-form-field> <mat-label> Age</mat-label><input matInput formControlName="firstCtrl" disabled value="Age"> </mat-form-field> </td>
+		
+						<td> <mat-form-field>  <mat-label> Gender</mat-label><input matInput formControlName="firstCtrl" disabled value="Gender"> </mat-form-field> </td>
+						<td> <mat-form-field>  <mat-label> Nationality</mat-label><input matInput formControlName="firstCtrl" disabled value="Nationality"> </mat-form-field> </td>
+					</tr>
+					<tr>
+						<td> <mat-form-field>  <mat-label> Preferred Language</mat-label><input matInput formControlName="firstCtrl" disabled value="Preferred Language"> </mat-form-field> </td>
+					</tr>
+					<tr>
+						<td> <mat-panel-title> Diagnosis</mat-panel-title> </td>
+						<td> <mat-form-field class="example-full-width1">
+							<mat-label> Diagnosis</mat-label>
+							<input matInput  formControlName="firstCtrl" disabled value="Diagnosis">
+						</mat-form-field>
+					 </td>
+					</tr>
+					<tr>
+						<td> <mat-panel-title> Vitals-Last Recorded</mat-panel-title> </td>
+						<td> <mat-form-field class="example-full-width1">
+							<mat-label> Vitals-Last Recorded</mat-label>
+							<input matInput  formControlName="firstCtrl" disabled value="Vitals-Last Recorded">
+						</mat-form-field>
+					 </td>
+					</tr>
+					<tr>
+						<td> <mat-panel-title> Referring Physician</mat-panel-title> </td>
+						<td><mat-form-field class="example-full-width1">
+							<mat-label> Referring Physician</mat-label>
+							<input matInput  formControlName="firstCtrl" disabled value="Referring Physician">
+						</mat-form-field>
+					 </td>
+					</tr>
+					<tr>
+						<td> <mat-panel-title> Mode of Payment</mat-panel-title> </td>
+						<td> <mat-form-field class="example-full-width1">
+							<mat-label> Mode of Payment</mat-label>
+							<input matInput  formControlName="firstCtrl" disabled value="Mode of Payment">
+						</mat-form-field> </td>
+					</tr>
+					<tr>
+						<td> <mat-panel-title> Treating Therapist</mat-panel-title> </td>
+						<td> <mat-form-field class="example-full-width1">
+							<mat-label>  Treating Therapist</mat-label>
+							<input matInput  formControlName="firstCtrl" disabled value=" Treating Therapist">
+						</mat-form-field>
+					 </td>
+					</tr>
+		
+		
+				</table>
+
+				   <div mat-dialog-actions align="end">
+					<button mat-button mat-raised-button color="primary" style="margin-right: 16px" (click)="stepper.reset()">Reset</button>
+					<button mat-button mat-raised-button color="primary" matStepperNext>Next</button>
+					</div>
+					</form>
+					</mat-step>
+					<mat-step [stepControl]="secondFormGroup" label="Subjective">
+						<form [formGroup]="secondFormGroup">
+						  <!-- <ng-template matStepLabel>Subjective</ng-template> -->
+						 
+						  <mat-panel-title>
+							Presenting Complaints/Cardinal signs and symptoms</mat-panel-title>
+		<table>
+			<tr>
+				<td>
+					<mat-panel-title>
+						<input type="checkbox" id="cough" name="cough" value="cough">
+						<label for="cough"> Cough(Onset,duration,nature,odour,type)</label><br>
+					</mat-panel-title>
+				</td>
+			</tr>
+			<tr>
+				<td> <mat-form-field class="example-full-width1" appearance="outline">
+					<mat-label>  Cough(Onset,duration,nature,odour,type)</mat-label>
+					<input matInput  formControlName="secondCtrl" disabled value=" Cough(Onset,duration,nature,odour,type)">
+				</mat-form-field> </td>
+			</tr>
+			<tr>
+				<td>
+					<mat-panel-title>
+						<input type="checkbox" id="Sputum" name="Sputum" value="Sputum">
+						<label for="Sputum">Suptum/expectoration</label><br>
+					</mat-panel-title>
+				</td>
+			</tr>
+			<tr>
+				<td> <mat-form-field class="example-full-width1" appearance="outline">
+					<mat-label>  Suptum/expectoration</mat-label>
+					<input matInput  formControlName="secondCtrl" disabled value=" Suptum/expectoration">
+				</mat-form-field> </td>
+			</tr>
+			<tr>
+				<td>
+					<mat-panel-title>
+						<input type="checkbox" id="Hemoptysis" name="Hemoptysis" value="Hemoptysis">
+						<label for="Hemoptysis">Hemoptysis</label><br>
+					</mat-panel-title>
+				</td>
+	
+			</tr>
+			<tr>
+				<td><mat-form-field class="example-full-width1" appearance="outline">
+					 <mat-label> Hemoptysis</mat-label>
+					<input matInput  formControlName="secondCtrl" disabled value=" Hemoptysis">
+				</mat-form-field> </td>
+			</tr>
+			<tr>
+				<td>
+					<mat-panel-title>
+						<input type="checkbox" id="Breathlessness" name="Breathlessness" value="Breathlessness">
+						<label for="Breathlessness">Breathlessness-Modified BORG RPE Scale</label><br>
+					</mat-panel-title>
+				</td>
+	
+			</tr>
+			<tr>
+				<td> <mat-form-field class="example-full-width1" appearance="outline">
+					<mat-label> Breathlessness-Modified BORG RPE Scale</mat-label>
+				   <input matInput  formControlName="secondCtrl" disabled value=" Breathlessness-Modified BORG RPE Scale">
+			   </mat-form-field> </td>
+			</tr>
+			<tr>
+				<td>
+					<mat-panel-title>
+						<input type="checkbox" id="ChestPain" name="ChestPain" value="ChestPain">
+						<label for="ChestPain">Chest Pain</label><br>
+					</mat-panel-title>
+				</td>
+	
+			</tr>
+			<tr>
+				<td> <mat-form-field class="example-full-width1" appearance="outline">
+					<mat-label> Chest Pain</mat-label>
+				   <input matInput  formControlName="secondCtrl" disabled value=" Chest Pain">
+			   </mat-form-field>  </td>
+			</tr>
+			<tr>
+				<td>
+					<mat-panel-title>
+						<input type="checkbox" id="Wheezing" name="Wheezing" value="Wheezing">
+						<label for="Wheezing">Wheezing/ other breath sounds</label><br>
+					</mat-panel-title>
+				</td>
+	
+			</tr>
+			<tr>
+				<td> <mat-form-field class="example-full-width1" appearance="outline">
+					<mat-label> Wheezing/ other breath sounds</mat-label>
+				   <input matInput  formControlName="secondCtrl" disabled value=" Wheezing/ other breath sounds">
+			   </mat-form-field> </td>
+			</tr>
+			<tr>
+				<td>
+					<mat-panel-title>
+						<input type="checkbox" id="Oedema" name="Oedema" value="Oedema">
+						<label for="Oedema">Oedema</label><br>
+					</mat-panel-title>
+				</td>
+	
+			</tr>
+			<tr>
+				<td><mat-form-field class="example-full-width1" appearance="outline">
+					<mat-label> Oedema</mat-label>
+				   <input matInput  formControlName="secondCtrl" disabled value=" Oedema">
+			   </mat-form-field> </td>
+			</tr>
+			<tr>
+				<td>
+					<mat-panel-title>
+						<input type="checkbox" id="Others" name="Others" value="Others">
+						<label for="Others">Other Symptoms(Syncope,Cyanotic spells,fever,infection,hematuria,incontinence,etc)</label><br>
+					</mat-panel-title>
+				</td>
+	
+			</tr>
+			<tr>
+				<td> <mat-form-field class="example-full-width1" appearance="outline">
+					<mat-label> Other Symptoms(Syncope,Cyanotic spells,fever,infection,hematuria,incontinence,etc)</mat-label>
+				   <input matInput  formControlName="secondCtrl" disabled value=" Other Symptoms(Syncope,Cyanotic spells,fever,infection,hematuria,incontinence,etc)">
+			   </mat-form-field> </td>
+			</tr>
+		</table>
+		<table>
+	
+			<tr>
+				<td> <mat-panel-title> History of Presenting Complaints:</mat-panel-title> </td>
+			</tr>
+			<tr>
+				<td> <mat-panel-title> Site</mat-panel-title> </td>
+				<td> <mat-form-field class="example-full-width1" appearance="outline">
+					<mat-label> Site</mat-label>
+				   <input matInput  formControlName="secondCtrl" disabled value="Site">
+			   </mat-form-field> </td>
+			</tr>
+			<tr>
+				<td> <mat-panel-title> Intensity</mat-panel-title> </td>
+				<td> <mat-form-field class="example-full-width1" appearance="outline">
+					<mat-label> Intensity</mat-label>
+				   <input matInput  formControlName="secondCtrl" disabled value="Intensity">
+			   </mat-form-field> </td>
+			</tr>
+			<tr>
+				<td> <mat-panel-title> Type</mat-panel-title> </td>
+				<td><mat-form-field class="example-full-width1" appearance="outline">
+					<mat-label> Type</mat-label>
+				   <input matInput  formControlName="secondCtrl" disabled value="Type">
+			   </mat-form-field></td>
+			</tr>
+			<tr>
+				<td> <mat-panel-title>Modifying factors</mat-panel-title> </td>
+				<td> <mat-form-field class="example-full-width1" appearance="outline">
+					<mat-label> Modifying factors</mat-label>
+				   <input matInput  formControlName="secondCtrl" disabled value="Modifying factors">
+			   </mat-form-field></td>
+			</tr>
+			<tr>
+				<td> <mat-panel-title> Onset,duration</mat-panel-title> </td>
+				<td> <mat-form-field class="example-full-width1" appearance="outline">
+					<mat-label> Onset,duration</mat-label>
+				   <input matInput  formControlName="secondCtrl" disabled value="Onset,duration">
+			   </mat-form-field> </td>
+			</tr>
+			<tr>
+				<td> <mat-panel-title> Aspiration</mat-panel-title> </td>
+				<td><mat-form-field class="example-full-width1" appearance="outline">
+					<mat-label> Aspiration</mat-label>
+				   <input matInput  formControlName="secondCtrl" disabled value="Aspiration">
+			   </mat-form-field></td>
+			</tr>
+			<tr>
+				<td> <mat-panel-title>Effect on ADL</mat-panel-title> </td>
+				<td> <mat-form-field class="example-full-width1" appearance="outline">
+					<mat-label> Effect on ADL</mat-label>
+				   <input matInput  formControlName="secondCtrl" disabled value="Effect on ADL">
+			   </mat-form-field> </td>
+			</tr>
+	
+			<tr>
+				<td> <mat-panel-title>Previous Episodes</mat-panel-title> </td>
+			</tr>
+			<tr>
+				<td> <mat-form-field class="example-full-width1"  appearance="outline">
+					<mat-label> Previous Episodes</mat-label>
+					<textarea matInput  formControlName="fifthCtrl"  placeholder="Previous Episodes" required></textarea>
+			</mat-form-field> </td>
+			</tr>
+			<tr>
+				<td> <mat-panel-title>Previous Treatment</mat-panel-title> </td>
+			</tr>
+			<tr>
+				<td> <mat-form-field class="example-full-width1"  appearance="outline">
+					<mat-label> Previous Treatment</mat-label>
+					<textarea matInput  formControlName="fifthCtrl"  placeholder="Previous Treatment" required></textarea>
+			</mat-form-field>  </td>
+			</tr>
+			<tr>
+				<td> <mat-panel-title>Allergies current and past </mat-panel-title> </td>
+				<td> <mat-form-field class="example-full-width1" appearance="outline">
+					<mat-label> Allergies current and past</mat-label>
+				   <input matInput  formControlName="secondCtrl" disabled value="Allergies current and past">
+			   </mat-form-field> </td>
+			</tr>
+			<mat-panel-title>Occupation / environmental factors :-</mat-panel-title>
+			<tr>
+				<td> <mat-panel-title>Drugs,alcohol,smoking</mat-panel-title> </td>
+				<td> <mat-form-field class="example-full-width1" appearance="outline">
+					<mat-label> Drugs,alcohol,smoking</mat-label>
+				   <input matInput  formControlName="secondCtrl" disabled value="Drugs,alcohol,smoking">
+			   </mat-form-field> </td>
+			</tr>
+			<tr>
+				<td> <mat-panel-title>Physical activity ,Lifestyle ,exercise tolerance</mat-panel-title> </td>
+				<td> <mat-form-field class="example-full-width1" appearance="outline">
+					<mat-label> Physical activity ,Lifestyle ,exercise tolerance</mat-label>
+				   <input matInput  formControlName="secondCtrl" disabled value="Physical activity ,Lifestyle ,exercise tolerance">
+			   </mat-form-field> </td>
+			</tr>
+			<tr>
+				<td> <mat-panel-title>Sleep</mat-panel-title> </td>
+				<td> <mat-form-field class="example-full-width1" appearance="outline">
+					<mat-label>Sleep</mat-label>
+				   <input matInput  formControlName="secondCtrl" disabled value="Sleep">
+			   </mat-form-field> </td>
+			</tr>
+			<tr>
+				<td> <mat-panel-title>Apetite,Weight loss/gain</mat-panel-title> </td>
+				<td> <mat-form-field class="example-full-width1" appearance="outline">
+					<mat-label>Apetite,Weight loss/gain</mat-label>
+				   <input matInput  formControlName="secondCtrl" disabled value="Apetite,Weight loss/gain">
+			   </mat-form-field> </td>
+			</tr>
+			<tr>
+				<td> <mat-panel-title>Bowel Bladder</mat-panel-title> </td>
+				<td> <mat-form-field class="example-full-width1" appearance="outline">
+					<mat-label>Bowel Bladder</mat-label>
+				   <input matInput  formControlName="secondCtrl" disabled value="Bowel Bladder">
+			   </mat-form-field> </td>
+			</tr>
+			<tr>
+				<td> <mat-panel-title>Past Medical / surgical History :-</mat-panel-title> </td>
+			</tr>
+			
+			<tr>
+				<td> <mat-panel-title>Hospitalization</mat-panel-title> </td>
+			</tr>
+			<tr>
+				<td> <mat-form-field class="example-full-width1"  appearance="outline">
+					<mat-label> Hospitalization</mat-label>
+					<textarea matInput  formControlName="secondCtrl"  placeholder="Hospitalization" required></textarea>
+			</mat-form-field> </td>
+			</tr>
+			<tr>
+				<td> <mat-panel-title>Ventilation</mat-panel-title> </td>
+			</tr>
+			<tr>
+				<td>
+					<mat-form-field class="example-full-width1"  appearance="outline">
+					 <mat-label> Ventilation</mat-label>
+					<textarea matInput  formControlName="secondCtrl"  placeholder="Ventilation" required></textarea>
+			</mat-form-field> </td>
+			</tr>
+			<tr>
+				<td> <mat-panel-title>Chronic illnesses</mat-panel-title> </td>
+			</tr>
+			<tr>
+				<td> <mat-form-field class="example-full-width1"  appearance="outline">
+					<mat-label> Chronic illnesses</mat-label>
+					<textarea matInput  formControlName="secondCtrl"  placeholder="Chronic illnesses" required></textarea>
+			</mat-form-field> </td>
+			</tr>
+			<tr>
+				<td> <mat-panel-title>Surgeries</mat-panel-title> </td>
+			</tr>
+			<tr>
+				<td> <mat-form-field class="example-full-width1"  appearance="outline">
+					<mat-label> Surgeries</mat-label>
+				   <textarea matInput  formControlName="secondCtrl"  placeholder="Surgeries" required></textarea>
+		   </mat-form-field></td>
+			</tr>
+			<tr>
+				<td> <mat-panel-title>Medical and Family History</mat-panel-title> </td>
+			</tr>
+			<p></p>
+			<tr>
+				<td>
+					<input type="checkbox" id="Diabetes" name="Diabetes" value="Diabetes">
+					<label for="Diabetes"> Diabetes</label><br>
+					<input type="checkbox" id="HTN" name="HTN" value="HTN">
+					<label for="HTN">HTN</label><br>
+					<input type="checkbox" id="Malignancy" name="Malignancy" value="Malignancy">
+					<label for="Malignancy"> Malignancy</label><br>
+					<input type="checkbox" id="Epilepsy" name="Epilepsy" value="Epilepsys">
+					<label for="Epilepsy"> Epilepsy</label><br>
+					<input type="checkbox" id="Asthma" name="Asthma" value="Asthma">
+					<label for="Asthma"> Asthma</label><br>
+	
+				</td>
+				<td>
+					<input type="checkbox" id="Osteoporosis" name="Osteoporosis" value="Osteoporosiss">
+					<label for="Osteoporosis"> Osteoporosis</label><br>
+					<input type="checkbox" id="Pacemaker" name="Pacemaker" value="Pacemakers">
+					<label for="Pacemaker"> Pacemaker</label><br>
+					<input type="checkbox" id="Implants" name="Implants" value="Implants">
+					<label for="Implants"> Implants</label><br>
+					<input type="checkbox" id="Blood Disorders" name="Blood Disorders" value="Blood Disorders">
+					<label for="Blood Disorders"> Blood Disorders</label><br>
+					<input type="checkbox" id="Heart" name="Heart" value="Heart">
+					<label for="Heart"> Heart</label><br>
+	
+				</td>
+			</tr>
+			<p></p>
+			<tr>
+				<td> <mat-panel-title>Social- Economic History</mat-panel-title> </td>
+			</tr>
+			<p></p>
+			<tr>
+				<td> <mat-panel-title> Home and Environment</mat-panel-title> </td>
+				<td> <mat-form-field class="example-full-width1" appearance="outline">
+					<mat-label>Home and Environment</mat-label>
+				   <input matInput  formControlName="secondCtrl" disabled value="Home and Environment">
+			   </mat-form-field>  </td>
+			</tr>
+			<tr>
+				<td> <mat-panel-title>Modified Kuppuswamy scale </mat-panel-title> </td>
+				<td> <mat-form-field class="example-full-width1" appearance="outline">
+					<mat-label>Modified Kuppuswamy scale</mat-label>
+				   <input matInput  formControlName="secondCtrl" disabled value="Modified Kuppuswamy scale">
+			   </mat-form-field> </td>
+			</tr>
+			<tr>
+				<td> <mat-panel-title> Mental Health(depression/anxiety)</mat-panel-title> </td>
+				<td><mat-form-field class="example-full-width1" appearance="outline">
+					<mat-label>Mental Health(depression/anxiety)</mat-label>
+				   <input matInput  formControlName="secondCtrl" disabled value="Mental Health(depression/anxiety)">
+			   </mat-form-field> </td>
+			</tr>
+			
+			
+		</table>
+
+						  <div mat-dialog-actions align="end">
+							  <button mat-button mat-raised-button color="primary" style="margin-right: 16px"  matStepperPrevious>Back</button>
+							  <button mat-button mat-raised-button color="primary" style="margin-right: 16px" (click)="stepper.reset()">Reset</button>
+							<button mat-button mat-raised-button color="primary" style="margin-right: 16px"  matStepperNext>Next</button>
+						  </div>
+						</form>
+					  </mat-step>
+					  <!-- #docregion label -->
+					  <mat-step [stepControl]="thirdFormGroup" label="Objective">
+					  <!-- #enddocregion label -->
+						<form [formGroup]="thirdFormGroup">
+							<table>
+								<tr>
+									<td> <mat-panel-title>Temperature</mat-panel-title> </td>
+									<td> <mat-form-field class="example-full-width3" appearance="outline">
+										<mat-label>Temperature</mat-label>
+									   <input matInput  formControlName="thirdCtrl"  value="Temperature">
+								   </mat-form-field></td>
+								</tr>
+								<tr>
+									<td> <mat-panel-title>Pulse Quality and rate , rhythm</mat-panel-title> </td>
+									<td> <mat-form-field class="example-full-width3" appearance="outline">
+										<mat-label>Pulse Quality and rate , rhythm</mat-label>
+									   <input matInput  formControlName="thirdCtrl"  value="Pulse Quality and rate , rhythm">
+								   </mat-form-field> </td>
+								</tr>
+								<tr>
+									<td> <mat-panel-title>Respiratory rate and rhythm , charater , Accessory muscles</mat-panel-title> </td>
+									<td> <mat-form-field class="example-full-width3" appearance="outline">
+										<mat-label>Respiratory rate and rhythm , charater , Accessory muscles</mat-label>
+									   <input matInput  formControlName="thirdCtrl"  value="Respiratory rate and rhythm , charater , Accessory muscles">
+								   </mat-form-field> </td>
+								</tr>
+								<tr>
+									<td> <mat-panel-title>Blood Pressure (supine/ upright etc)</mat-panel-title> </td>
+									<td> <mat-form-field class="example-full-width3" appearance="outline">
+										<mat-label>Blood Pressure (supine/ upright etc)</mat-label>
+									   <input matInput  formControlName="thirdCtrl"  value="Blood Pressure (supine/ upright etc)">
+								   </mat-form-field> </td>
+								</tr>
+								<tr>
+									<td> <mat-panel-title>SPO2</mat-panel-title> </td>
+									<td> <mat-form-field class="example-full-width3" appearance="outline">
+										<mat-label>SPO2</mat-label>
+									   <input matInput  formControlName="thirdCtrl"  value="SPO2">
+								   </mat-form-field></td>
+								</tr>
+								<tr>
+									<td> <mat-panel-title>Observation(gait/ posture etc)</mat-panel-title> </td>
+								</tr>
+								<tr>
+									<td> <mat-form-field class="example-full-width3" appearance="outline">
+										<mat-label>Observation(gait/ posture etc)</mat-label>
+									   <textarea matInput  formControlName="thirdCtrl" value="Observation(gait/ posture etc)"></textarea>
+								   </mat-form-field> </td>
+								</tr>
+								<tr>
+									<td> <mat-panel-title>Height</mat-panel-title> </td>
+									<td> <mat-form-field class="example-full-width3" appearance="outline">
+										<mat-label>Height</mat-label>
+									   <input matInput  formControlName="thirdCtrl"  value="Height">
+								   </mat-form-field> </td>
+								</tr>
+								<tr>
+									<td> <mat-panel-title>Weight</mat-panel-title> </td>
+									<td> <mat-form-field class="example-full-width3" appearance="outline">
+										<mat-label>Weight</mat-label>
+									   <input matInput  formControlName="thirdCtrl"  value="Weight">
+								   </mat-form-field> </td>
+								</tr>
+								<tr>
+									<td> <mat-panel-title>BMI</mat-panel-title> </td>
+									<td> <mat-form-field class="example-full-width3" appearance="outline">
+										<mat-label>BMI</mat-label>
+									   <input matInput  formControlName="thirdCtrl"  value="BMI">
+								   </mat-form-field></td>
+								</tr>
+								<tr>
+									<td> <mat-panel-title>Palor </mat-panel-title> </td>
+									<td> <mat-form-field class="example-full-width3" appearance="outline">
+										<mat-label>Palor</mat-label>
+									   <input matInput  formControlName="thirdCtrl"  value="Palor">
+								   </mat-form-field> </td>
+								</tr>
+								<tr>
+									<td> <mat-panel-title>rubor</mat-panel-title> </td>
+									<td><mat-form-field class="example-full-width3" appearance="outline">
+										<mat-label>rubor</mat-label>
+									   <input matInput  formControlName="thirdCtrl"  value="rubor">
+								   </mat-form-field> </td>
+								</tr>
+								<tr>
+									<td> <mat-panel-title>Cyanosis</mat-panel-title> </td>
+									<td> <mat-form-field class="example-full-width3" appearance="outline">
+										<mat-label>Cyanosis</mat-label>
+									   <input matInput  formControlName="thirdCtrl"  value="Cyanosis">
+								   </mat-form-field> </td>
+								</tr>
+								<tr>
+									<td> <mat-panel-title>Clubbing</mat-panel-title> </td>
+									<td> <mat-form-field class="example-full-width3" appearance="outline">
+										<mat-label>Clubbing</mat-label>
+									   <input matInput  formControlName="thirdCtrl"  value="Clubbing">
+								   </mat-form-field> </td>
+								</tr>
+								<tr>
+									<td> <mat-panel-title>Oedema - peripheral oedema,pitting/non pitting</mat-panel-title> </td>
+									<td> <mat-form-field class="example-full-width3" appearance="outline">
+										<mat-label>Oedema - peripheral oedema,pitting/non pitting</mat-label>
+									   <input matInput  formControlName="thirdCtrl"  value="Oedema - peripheral oedema,pitting/non pitting">
+								   </mat-form-field> </td>
+								</tr>
+								<tr>
+									<td> <mat-panel-title>Jugular venous pressure</mat-panel-title> </td>
+									<td> <mat-form-field class="example-full-width3" appearance="outline">
+										<mat-label>Jugular venous pressure</mat-label>
+									   <input matInput  formControlName="thirdCtrl"  value="Jugular venous pressure">
+								   </mat-form-field> </td>
+								</tr>
+							</table>
+							<h4 class="mat-headline center-align">Chest Examination : -</h4>
+							<table class="Border">
+		
+		
+								<td>
+		
+									<mat-panel-title>Respiratory System</mat-panel-title><br /><br />
+									<mat-panel-title>Shape of chest</mat-panel-title>
+									<input class="es" type="text" placeholder="Shape of chest">
+									<mat-panel-title>Respiratory movements  / breathing pattern</mat-panel-title>
+									<input class="es" type="text" placeholder="Respiratory movements  / breathing pattern">
+									<mat-panel-title>Mediastinum</mat-panel-title>
+									<input class="es" type="text" placeholder="Mediastinum">
+									<mat-panel-title>Others (scars,sinuses)pulsations etc)</mat-panel-title>
+									<input class="es" type="text" placeholder="Others (scars,sinuses)pulsations etc)">
+		
+								</td>
+								<td>
+		
+									<mat-panel-title>Cardiac System</mat-panel-title><br /><br />
+									<mat-panel-title>Precordium</mat-panel-title>
+									<input class="es" type="text" placeholder="Precordium">
+									<mat-panel-title>Apex Impulse</mat-panel-title>
+									<input class="es" type="text" placeholder="Apex Impulse">
+									<mat-panel-title>Pulsations</mat-panel-title>
+									<input class="es" type="text" placeholder="Pulsations">
+									<mat-panel-title>Dialated Veins</mat-panel-title>
+									<input class="es" type="text" placeholder="Dialated Veins">
+									<mat-panel-title>Others</mat-panel-title>
+									<input class="es" type="text" placeholder="Others">
+		
+								</td>
+		
+							</table>
+							<table class="Border">
+		
+		
+								<td>
+		
+									<mat-panel-title>Palpation Respiratory system</mat-panel-title><br /><br />
+									<mat-panel-title>Mediastinum / trachea</mat-panel-title>
+									<input class="es" type="text" placeholder="Mediastinum / trachea">
+									<mat-panel-title>Chest Expansion</mat-panel-title>
+									<input class="es" type="text" placeholder="Chest Expansion">
+									<mat-panel-title>Vocal fremitus</mat-panel-title>
+									<input class="es" type="text" placeholder="Vocal fremitus">
+									<mat-panel-title>Others (tenderness , vibration etc)</mat-panel-title>
+									<input class="es" type="text" placeholder="Others (tenderness , vibration etc)">
+		
+								</td>
+								<td>
+		
+									<mat-panel-title>Cardiac System</mat-panel-title><br /><br />
+									<mat-panel-title>Apex Beat</mat-panel-title>
+									<input class="es" type="text" placeholder="Apex Beat">
+									<mat-panel-title>Parasternal heave</mat-panel-title>
+									<input class="es" type="text" placeholder="Parasternal heave">
+									<mat-panel-title>Diastolic shock</mat-panel-title>
+									<input class="es" type="text" placeholder="Diastolic shock">
+									<mat-panel-title>Thrills</mat-panel-title>
+									<input class="es" type="text" placeholder="Thrills">
+									<mat-panel-title>Others pulsations</mat-panel-title>
+									<input class="es" type="text" placeholder="Others pulsations">
+		
+								</td>
+							</table><table>
+								<mat-panel-title>Percussion :-</mat-panel-title>
+								<br />
+								<br />
+								<mat-panel-title>Auscultation :-</mat-panel-title>
+								<br />
+								<br />
+								<tr>
+									<td> <mat-panel-title>Breath Sounds</mat-panel-title> </td>
+									<td> <mat-form-field class="example-full-width1" appearance="outline">
+										<mat-label>Breath Sounds</mat-label>
+									   <input matInput  formControlName="thirdCtrl"  value="Breath Sounds">
+								   </mat-form-field> </td>
+								</tr>
+								<tr>
+									<td> <mat-panel-title>Heart Sounds</mat-panel-title> </td>
+									<td> <mat-form-field class="example-full-width1" appearance="outline">
+										<mat-label>Heart Sounds</mat-label>
+									   <input matInput  formControlName="thirdCtrl"  value="Heart Sounds">
+								   </mat-form-field> </td>
+								</tr>
+								<tr>
+									<td> <mat-panel-title>Murmurs</mat-panel-title> </td>
+									<td> <mat-form-field class="example-full-width1" appearance="outline">
+										<mat-label>Murmurs</mat-label>
+									   <input matInput  formControlName="thirdCtrl"  value="Murmurs">
+								   </mat-form-field> </td>
+								</tr>
+								<tr>
+									<td> <mat-panel-title>Foreign / other sounds</mat-panel-title> </td>
+									<td> <mat-form-field class="example-full-width1" appearance="outline">
+										<mat-label>Foreign / other sounds</mat-label>
+									   <input matInput  formControlName="thirdCtrl"  value="Foreign / other sounds">
+								   </mat-form-field> </td>
+								</tr>
+							</table>
+											<table>
+												<mat-panel-title>Diagnostic :-</mat-panel-title>
+												<br />
+												<br />
+		
+												<tr>
+													<td> <mat-panel-title>Borgs RPE Scale</mat-panel-title> </td>
+													<td><mat-form-field class="example-full-width1" appearance="outline">
+														<mat-label>Borgs RPE Scale</mat-label>
+													   <input matInput  formControlName="thirdCtrl"  value="Borgs RPE Scale">
+												   </mat-form-field> </td>
+												</tr>
+												<tr>
+													<td> <mat-panel-title>Chest Xray / CT / MRI</mat-panel-title> </td>
+													<td> <mat-form-field class="example-full-width1" appearance="outline">
+														<mat-label>Chest Xray / CT / MRI</mat-label>
+													   <input matInput  formControlName="thirdCtrl"  value="Chest Xray / CT / MRI">
+												   </mat-form-field> </td>
+												</tr>
+												<tr>
+													<td> <mat-panel-title>Spirometry</mat-panel-title> </td>
+													<td> <mat-form-field class="example-full-width1" appearance="outline">
+														<mat-label>Spirometry</mat-label>
+													   <input matInput  formControlName="thirdCtrl"  value="Spirometry">
+												   </mat-form-field> </td>
+												</tr>
+												<tr>
+													<td> <mat-panel-title>ECG</mat-panel-title> </td>
+													<td> <mat-form-field class="example-full-width1" appearance="outline">
+														<mat-label>ECG</mat-label>
+													   <input matInput  formControlName="thirdCtrl"  value="ECG">
+												   </mat-form-field> </td>
+												</tr>
+												<tr>
+													<td> <mat-panel-title>6MWT</mat-panel-title> </td>
+													<td> <mat-form-field class="example-full-width1" appearance="outline">
+														<mat-label>6MWT</mat-label>
+													   <input matInput  formControlName="thirdCtrl"  value="6MWT">
+												   </mat-form-field> </td>
+												</tr>
+												<tr>
+													<td> <mat-panel-title>Shuttle Walking Test</mat-panel-title> </td>
+													<td> <mat-form-field class="example-full-width1" appearance="outline">
+														<mat-label>Shuttle Walking Test</mat-label>
+													   <input matInput  formControlName="thirdCtrl"  value="Shuttle Walking Test">
+												   </mat-form-field> </td>
+												</tr>
+												<tr>
+													<td> <mat-panel-title>Arterial Blood Gases</mat-panel-title> </td>
+													<td> <mat-form-field class="example-full-width1" appearance="outline">
+														<mat-label>Arterial Blood Gases</mat-label>
+													   <input matInput  formControlName="thirdCtrl"  value="Arterial Blood Gases">
+												   </mat-form-field> </td>
+												</tr>
+												<tr>
+													<td> <mat-panel-title>Others (Stress test , ECG)</mat-panel-title> </td>
+													<td><mat-form-field class="example-full-width1" appearance="outline">
+														<mat-label>Others (Stress test , ECG)</mat-label>
+													   <input matInput  formControlName="thirdCtrl"  value="Others (Stress test , ECG)">
+												   </mat-form-field> </td>
+												</tr>
+												<tr>
+													<td> <mat-panel-title>PFT</mat-panel-title> </td>
+													<td> <mat-form-field class="example-full-width1" appearance="outline">
+														<mat-label>PFT</mat-label>
+													   <input matInput  formControlName="thirdCtrl"  value="PFT">
+												   </mat-form-field> </td>
+												</tr>
+												<tr>
+													<td> <mat-panel-title>Disease specific scales , outcome measures</mat-panel-title> </td>
+													<td> <mat-form-field class="example-full-width1" appearance="outline">
+														<mat-label>Disease specific scales , outcome measures</mat-label>
+													   <input matInput  formControlName="thirdCtrl"  value="Disease specific scales , outcome measures">
+												   </mat-form-field> </td>
+												</tr>
+											</table>
+						  <div mat-dialog-actions align="end">
+							<button mat-button mat-raised-button color="primary" style="margin-right: 16px" matStepperPrevious>Back</button>
+							<button mat-button mat-raised-button color="primary" style="margin-right: 16px" (click)="stepper.reset()">Reset</button>
+							<button mat-button mat-raised-button color="primary" style="margin-right: 16px" matStepperNext>Next</button>
+						  </div>
+						</form>
+					  </mat-step>
+
+						  <mat-step [stepControl]="fourthFormGroup" label="Assessment">
+							  <!-- #enddocregion label -->
+								<form [formGroup]="fourthFormGroup">
+								  <mat-form-field class="example-full-width"  appearance="outline">
+									  <mat-label>TIPS e.g.Impairments identified,response noted with corrections etc </mat-label>
+									  <textarea matInput  formControlName="fourthCtrl"  placeholder=" TIPS e.g.Impairments identified,response noted with corrections etc  " required></textarea>
+							  </mat-form-field>
+						<div mat-dialog-actions align="end">
+						  <button mat-button mat-raised-button color="primary" style="margin-right: 16px" matStepperPrevious>Back</button>
+						  <button mat-button mat-raised-button color="primary" style="margin-right: 16px" (click)="stepper.reset()">Reset</button>
+						  <button mat-button mat-raised-button color="primary" style="margin-right: 16px" matStepperNext>Next</button>
+						</div>
+						</form>
+					  </mat-step>
+
+
+
+				  <mat-step [stepControl]="fifthFormGroup" label="Plan">
+					  <!-- #enddocregion label -->
+						<form  [formGroup]="fifthFormGroup">
+
+							  <p>Short Term Goals</p>
+							  <mat-form-field class="example-full-width"  appearance="outline">
+								  <mat-label> Short Term Goals</mat-label>
+								  <textarea matInput  formControlName="fifthCtrl"  placeholder=" Short Term Goals" required></textarea>
+						  </mat-form-field>
+						  <p>Long Term Goals</p>
+							  <mat-form-field class="example-full-width"  appearance="outline">
+								  <mat-label> Long Term Goals</mat-label>
+								  <textarea matInput  formControlName="fifthCtrl"  placeholder=" Long Term Goals" required></textarea>
+						  </mat-form-field>
+						  <p>Treatment Given</p>
+							  <mat-form-field class="example-full-width"  appearance="outline">
+								  <mat-label> Note change in assessment area with the Interventions,Dosage,Frequency,Modifications To Postioning,Home Advice etc </mat-label>
+								  <textarea matInput  formControlName="fifthCtrl"  placeholder="Note change in assessment area with the Interventions,Dosage,Frequency,Modifications To Postioning,Home Advice etc" required></textarea>
+						  </mat-form-field>
+						 <br>
+						  <mat-form-field class="example-full-width"  appearance="outline">
+							  <mat-label> Comments</mat-label>
+							  <textarea matInput  formControlName="fifthCtrl"  placeholder="Comments" required></textarea>
+					  </mat-form-field>
+
+				  <div mat-dialog-actions align="end">
+				  <button mat-button mat-raised-button color="primary" style="margin-right: 16px" matStepperPrevious>Back</button>
+				  <button mat-button mat-raised-button color="primary" style="margin-right: 16px" matStepperNext>Save</button>
+				  <button mat-button mat-raised-button color="primary" style="margin-right: 16px" (click)="stepper.reset()">Reset</button>
+				  <button mat-button mat-raised-button color="primary" style="margin-right: 16px" matStepperNext>submit</button>
+				  </div>
+				  </form>
+				  </mat-step>
+
+
+
+				  </mat-stepper>
+				  </div>
