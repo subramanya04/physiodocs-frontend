@@ -1,3 +1,4 @@
 export * from './auth-response';
+export * from './department';
+export * from './dropdown';
 export * from './user';
-export * from './user-roles';

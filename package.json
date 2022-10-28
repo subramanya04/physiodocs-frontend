@@ -1,6 +1,6 @@
 {
-  "name": "cdk-admin-v2",
-  "version": "0.0.0",
+  "name": "physiodocs",
+  "version": "1.0.0",
   "license": "MIT",
   "scripts": {
     "ng": "./node_modules/.bin/ng",
@@ -44,6 +44,7 @@
     "ng2-nvd3": "^2.0.0",
     "ng9-odometer": "^2.1.0",
     "ngx-highlightjs": "^4.1.2",
+    "ngx-image-drawing": "^1.2.4",
     "ngx-quill": "^13.0.0",
     "ngx-scrollbar": "^7.4.1",
     "nvd3": "^1.8.6",
