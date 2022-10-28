@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { HttpErrorResponse } from '@angular/common/http';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { AuthService } from '../auth/auth.service';
 import { UserService } from '../core/services/user/user.service';
+import { ErrorHandlerService } from '../core/services/error-handler/error-handler.service';
 
 @Component({
   selector: 'app-login',
@@ -36,7 +38,8 @@ export class LoginComponent implements OnInit {
     private router: Router,
     private fb: FormBuilder,
     private authService: AuthService,
-    private userService: UserService
+    private userService: UserService,
+    private errorHandler: ErrorHandlerService
   ) {}
 
   ngOnInit() {
@@ -66,9 +69,17 @@ export class LoginComponent implements OnInit {
     this.authService
       .login(this.userForm.value)
       .pipe(takeUntil(this.unsubscribe))
-      .subscribe(({ data }) => {
-        this.userService.setUserDetails(data);
-        this.router.navigate(['/main/dashboard']);
-      }, console.error);
+      .subscribe(
+        ({ data }) => {
+          this.userService.setUserDetails(data);
+          this.router.navigate(['/main/dashboard']);
+        },
+        (error: HttpErrorResponse) => {
+          this.submitted = false;
+          this.errorHandler.openSnackBar(
+            error?.error?.message ?? error.message ?? error
+          );
+        }
+      );
   }
 }

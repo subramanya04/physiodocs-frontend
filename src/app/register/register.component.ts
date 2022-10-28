@@ -7,6 +7,13 @@ import { takeUntil } from 'rxjs/operators';
 import { AuthService } from '../auth/auth.service';
 import { ErrorHandlerService } from '../core/services/error-handler/error-handler.service';
 import { UserService } from '../core/services/user/user.service';
+import {
+  GenderTypes,
+  LanguageTypes,
+  NationalityTypes,
+  SelectOptions,
+  toSelectOptions
+} from '../core/models';
 
 @Component({
   selector: 'app-register',
@@ -38,6 +45,9 @@ export class RegisterComponent implements OnInit, OnDestroy {
       maxlength: 'Please enter less than 25 characters'
     }
   };
+  genderOptions: SelectOptions[] = [];
+  languageOptions: SelectOptions[] = [];
+  nationalityOptions: SelectOptions[] = [];
   constructor(
     private router: Router,
     private fb: FormBuilder,
@@ -47,6 +57,9 @@ export class RegisterComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit() {
+    this.genderOptions = toSelectOptions(GenderTypes);
+    this.languageOptions = toSelectOptions(LanguageTypes);
+    this.nationalityOptions = toSelectOptions(NationalityTypes);
     this.buildForm();
   }
 
@@ -82,9 +95,17 @@ export class RegisterComponent implements OnInit, OnDestroy {
     if (this.form.invalid) {
       return;
     }
-
+    const payload = {
+      ...this.form.value,
+      dateOfBirth: this.form.value.dateOfBirth
+        ? new Date(this.form.value.dateOfBirth)
+            .toISOString()
+            .slice(0, 19)
+            .replace('T', ' ')
+        : null
+    };
     this.authService
-      .register(this.form.value)
+      .register(payload)
       .pipe(takeUntil(this.unsubscribe))
       .subscribe(
         ({ messages, data }) => {
