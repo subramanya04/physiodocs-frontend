@@ -230,5 +230,22 @@ export enum NationalityTypes {
   'zimbabwean' = 'ZIMBABWEAN'
 }
 
+export enum ModeOfPaymentTypes {
+  cash = 'CASH',
+  cheque = 'CHEQUE',
+  dd = 'DD',
+  neft = 'NEFT',
+  rtgs = 'RTGS',
+  imps = 'IMPS',
+  upi = 'UPI',
+  'net banking' = 'NET BANKING',
+  'debit card' = 'DEBIT CARD',
+  'credit card' = 'CREDIT CARD',
+  phonePe = 'PHONEPE',
+  googlePay = 'GOOGLEPAY',
+  paytm = 'PAYTM',
+  paypal = 'PAYPAL'
+}
+
 export const toSelectOptions = (obj: Object): SelectOptions[] =>
   Object.keys(obj).map(label => ({ label, value: obj[label] }));

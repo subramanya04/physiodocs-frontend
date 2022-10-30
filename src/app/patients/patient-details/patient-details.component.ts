@@ -1,11 +1,12 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
-import { Subject } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
-import { User } from '../../core/models';
+import { of, Subject, combineLatest } from 'rxjs';
+import { map, mergeMap, takeUntil } from 'rxjs/operators';
+import { Patient } from '../../core/models';
 import { PatientService } from '../patients.service';
 import { ErrorHandlerService } from '../../core/services/error-handler/error-handler.service';
+import { AssessmentService } from '../../physio/services/assessment/assessment.service';
 
 @Component({
   selector: 'app-patient-details',
@@ -13,12 +14,15 @@ import { ErrorHandlerService } from '../../core/services/error-handler/error-han
   styleUrls: ['./patient-details.component.scss']
 })
 export class PatientDetailsComponent implements OnInit, OnDestroy {
-  user: User | undefined;
+  user: Patient | undefined;
   unsubscribe = new Subject();
+  public displayedColumns = ['userId', 'firstName', 'lastName', 'email'];
+  public dataSource: Patient[] = [];
   constructor(
     private route: ActivatedRoute,
     private patientService: PatientService,
-    private errorHandler: ErrorHandlerService
+    private errorHandler: ErrorHandlerService,
+    private assessmentService: AssessmentService
   ) {}
 
   ngOnInit(): void {
@@ -35,13 +39,16 @@ export class PatientDetailsComponent implements OnInit, OnDestroy {
   }
 
   loadUserDetails(userId: number): void {
-    this.patientService
-      .getById(userId)
+    const patientDetails$ = this.patientService.getById(userId);
+
+    const patientAssessments$ =
+      this.assessmentService.getUserAssessments(userId);
+
+    combineLatest(patientDetails$, patientAssessments$)
       .pipe(takeUntil(this.unsubscribe))
       .subscribe(
-        ({ data, messages }) => {
-          this.user = data;
-          this.errorHandler.openSnackBar(messages.join(', '));
+        ([{ data: user }, { data: assessments }]) => {
+          this.user = { ...user, assessments };
         },
         (error: HttpErrorResponse) => {
           this.user = null;

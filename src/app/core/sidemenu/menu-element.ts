@@ -35,7 +35,7 @@ export const menus: Menu[] = [
     sub: [
       {
         name: 'Physio',
-        link: 'material-widgets/buttons',
+        link: false,
         icon: 'indeterminate_check_box',
         chip: false,
         open: false,

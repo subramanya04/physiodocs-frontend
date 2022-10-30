@@ -32,10 +32,9 @@ export class PatientsDashboardComponent implements OnInit, OnDestroy {
       .get()
       .pipe(takeUntil(this.unsubscribe))
       .subscribe(
-        ({ data, count, messages }) => {
+        ({ data, count }) => {
           this.dataSource = data;
           this.count = count;
-          this.errorHandler.openSnackBar(messages.join(', '));
         },
         (error: HttpErrorResponse) => {
           this.dataSource = [];
