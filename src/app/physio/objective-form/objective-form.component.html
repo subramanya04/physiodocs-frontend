@@ -1,1 +1,70 @@
-<p>objective-form works!</p>
+<form [formGroup]="form">
+  <table class="example-full-width">
+    <ng-container *ngIf="!isAssessment">
+      <tr>
+        <td>
+          <p>Relevent Manual Muscle Testing</p>
+          <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Relevent Manual Muscle Testing</mat-label>
+            <textarea
+              matInput
+              formControlName="releventManualMuscleTesting"
+              placeholder="Relevent Manual Muscle Testing"
+            ></textarea>
+          </mat-form-field>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <p>Relevent Soft Tissue Testing</p>
+          <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Relevent Soft Tissue Testing</mat-label>
+            <textarea
+              matInput
+              required
+              formControlName="releventSoftTissueTesting"
+              placeholder="Relevent Soft Tissue Testing"
+            ></textarea>
+          </mat-form-field>
+        </td>
+      </tr>
+    </ng-container>
+
+    <tr *ngIf="isAssessment">
+      <td>
+        <p>Total Assessment</p>
+        <mat-form-field class="example-full-width">
+          <mat-label>Total Assessment</mat-label>
+          <textarea
+            matInput
+            required
+            formControlName="totalAssessment"
+            placeholder="Total Assessment"
+          ></textarea>
+        </mat-form-field>
+      </td>
+    </tr>
+  </table>
+
+  <div mat-dialog-actions align="end">
+    <button
+      mat-button
+      mat-raised-button
+      color="primary"
+      style="margin-right: 16px"
+      (click)="onPrevious()"
+    >
+      Previous
+    </button>
+    <button
+      mat-button
+      mat-raised-button
+      color="primary"
+      [disabled]="form?.invalid"
+      (click)="onNext()"
+    >
+      Next
+    </button>
+  </div>
+</form>

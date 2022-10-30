@@ -2,10 +2,11 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { PatientDetails, PhysioForm } from '../../models';
 import { environment } from '../../../../environments/environment';
+
 @Injectable({
   providedIn: 'root'
 })
-export class PhysioService {
+export class AssessmentService {
   constructor(private http: HttpClient) {}
 
   createAssessment(physioDetails: PhysioForm) {
@@ -27,7 +28,8 @@ export class PhysioService {
   getUserAssessments(userId: number) {
     const params = new HttpParams({
       fromObject: {
-        userId
+        userId,
+        assessment: true
       }
     });
     return this.http.get<{ data: any; messages: string[] }>(

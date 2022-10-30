@@ -1,0 +1,85 @@
+<form [formGroup]="form">
+  <table class="example-full-width">
+    <tr>
+      <td>
+        <p>Long Term Goals</p>
+        <mat-form-field class="example-full-width" appearance="outline">
+          <mat-label>Long Term Goals</mat-label>
+          <textarea
+            matInput
+            formControlName="longTermGoals"
+            placeholder="Long Term Goals"
+          ></textarea>
+        </mat-form-field>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <p>Short Term Goals</p>
+        <mat-form-field class="example-full-width" appearance="outline">
+          <mat-label>Short Term Goals</mat-label>
+          <textarea
+            matInput
+            required
+            formControlName="shortTermGoals"
+            placeholder="Short Term Goals"
+          ></textarea>
+        </mat-form-field>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <p>Treatment Given</p>
+        <mat-form-field class="example-full-width" appearance="outline">
+          <mat-label>Treatment Given</mat-label>
+          <textarea
+            matInput
+            required
+            formControlName="treatmentGiven"
+            placeholder="Treatment Given"
+          ></textarea>
+        </mat-form-field>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <p>Final Comments</p>
+        <mat-form-field class="example-full-width" appearance="outline">
+          <mat-label>Final Comments</mat-label>
+          <textarea
+            matInput
+            required
+            formControlName="finalComments"
+            placeholder="Final Comments"
+          ></textarea>
+        </mat-form-field>
+      </td>
+    </tr>
+  </table>
+
+  <div mat-dialog-actions align="end">
+    <button
+      type="button"
+      mat-button
+      mat-raised-button
+      color="primary"
+      style="margin-right: 16px"
+      (click)="onPrevious()"
+    >
+      Previous
+    </button>
+    <button
+      type="button"
+      mat-button
+      mat-raised-button
+      color="primary"
+      [disabled]="form?.invalid"
+      (click)="onSubmit()"
+    >
+      Submit
+    </button>
+  </div>
+</form>

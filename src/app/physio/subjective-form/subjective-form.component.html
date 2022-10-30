@@ -1,1 +1,179 @@
-<p>subjective-form works!</p>
+<form [formGroup]="form">
+  <table class="example-full-width">
+    <tr>
+      <td>
+        <p>Medical Diagnosis</p>
+        <mat-form-field class="example-full-width" appearance="outline">
+          <mat-label>Medical Diagnosis</mat-label>
+          <textarea
+            matInput
+            required
+            formControlName="medicalDiagnosis"
+            placeholder="Medical Diagnosis"
+          ></textarea>
+        </mat-form-field>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <p>Treating Diagnosis</p>
+        <mat-form-field class="example-full-width" appearance="outline">
+          <mat-label>Treating Diagnosis</mat-label>
+          <textarea
+            matInput
+            formControlName="treatingDiagnosis"
+            placeholder="Treating Diagnosis"
+          ></textarea>
+        </mat-form-field>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <p>Body Chart</p>
+        <image-drawing
+          [src]="imageUrl"
+          outputMimeType="'image/jpeg'"
+          outputQuality="0.8"
+          (save)="saveBodyChart($event)"
+          (cancel)="cancelBodyChart()"
+        >
+        </image-drawing>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <p>History Of Present Complaints</p>
+        <mat-form-field class="example-full-width">
+          <mat-label>History Of Present Complaints</mat-label>
+          <textarea
+            matInput
+            formControlName="historyOfPresentComplaints"
+            placeholder="History Of Present Complaints"
+          ></textarea>
+        </mat-form-field>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <p>Current Or Past Treatment</p>
+        <mat-form-field class="example-full-width">
+          <mat-label>Current Or Past Treatment</mat-label>
+          <textarea
+            matInput
+            formControlName="currentOrPastTreatment"
+            placeholder="Current Or Past Treatment"
+          ></textarea>
+        </mat-form-field>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <p>Medical And Family History</p>
+        <mat-form-field class="example-full-width">
+          <mat-label>Medical And Family History</mat-label>
+          <textarea
+            matInput
+            formControlName="medicalAndFamilyHistory"
+            placeholder="Medical And Family History"
+          ></textarea>
+        </mat-form-field>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <p>Surgical History</p>
+        <mat-form-field class="example-full-width">
+          <mat-label>Surgical History</mat-label>
+          <textarea
+            matInput
+            formControlName="surgicalHistory"
+            placeholder="Surgical History"
+          ></textarea>
+        </mat-form-field>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <p>Family History</p>
+        <mat-form-field class="example-full-width">
+          <mat-label>Family History</mat-label>
+          <textarea
+            matInput
+            formControlName="familyHistory"
+            placeholder="Family History"
+          ></textarea>
+        </mat-form-field>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <p>Social History</p>
+        <mat-form-field class="example-full-width">
+          <mat-label>Social History</mat-label>
+          <textarea
+            matInput
+            formControlName="socialHistory"
+            placeholder="Social History"
+          ></textarea>
+        </mat-form-field>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <p>Medication And Allergies</p>
+        <mat-form-field class="example-full-width">
+          <mat-label>Medication And Allergies</mat-label>
+          <textarea
+            matInput
+            formControlName="medicationAndAllergies"
+            placeholder="Medication And Allergies"
+          ></textarea>
+        </mat-form-field>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <p>Other Symptoms</p>
+        <mat-form-field class="example-full-width">
+          <mat-label>Other Symptoms</mat-label>
+          <textarea
+            matInput
+            formControlName="otherSymptoms"
+            placeholder="Other Symptoms"
+          ></textarea>
+        </mat-form-field>
+      </td>
+    </tr>
+  </table>
+
+  <div mat-dialog-actions align="end">
+    <button
+      mat-button
+      mat-raised-button
+      color="primary"
+      style="margin-right: 16px"
+      (click)="onPrevious()"
+    >
+      Previous
+    </button>
+    <button
+      mat-button
+      mat-raised-button
+      color="primary"
+      [disabled]="form?.invalid"
+      (click)="onNext()"
+    >
+      Next
+    </button>
+  </div>
+</form>

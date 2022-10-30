@@ -1,122 +1,172 @@
 <form [formGroup]="form">
-  <ng-template matStepLabel>Patient Details</ng-template>
-  <!-- #enddocregion label -->
-
-  <table>
+  <table class="example-full-width">
     <tr>
       <td>
         <mat-form-field>
-          <mat-label>Patient Name</mat-label>
-          <input matInput formControlName="firstCtrl" value="Patient Name" />
+          <mat-label>Patient Id</mat-label>
+          <input
+            type="text"
+            placeholder="Patient Id"
+            aria-label="Patient Id"
+            matInput
+            required
+            formControlName="patientId"
+            [matAutocomplete]="auto"
+            (keyup)="onPatientSearch($event.target.value)"
+          />
+          <mat-autocomplete
+            #auto="matAutocomplete"
+            (optionSelected)="onPatientSelect($event)"
+          >
+            <mat-option
+              *ngFor="let option of patientOptions ?? []"
+              [value]="option"
+            >
+              {{ option.firstName }} {{ option.lastName }}
+            </mat-option>
+          </mat-autocomplete>
         </mat-form-field>
       </td>
 
       <td>
         <mat-form-field>
-          <mat-label> Height</mat-label
-          ><input matInput formControlName="firstCtrl" disabled />
+          <mat-label>Patient Name</mat-label
+          ><input readonly matInput formControlName="patientName" />
         </mat-form-field>
       </td>
 
       <td>
         <mat-form-field>
-          <mat-label> Weight</mat-label
-          ><input
-            matInput
-            formControlName="firstCtrl"
-            disabled
-            value="Gender"
-          />
+          <mat-label>Age</mat-label
+          ><input readonly matInput formControlName="age" />
         </mat-form-field>
       </td>
+
       <td>
         <mat-form-field>
-          <mat-label> BMI</mat-label
-          ><input
+          <mat-label>Gender</mat-label>
+          <mat-select disabled formControlName="gender">
+            <mat-option
+              *ngFor="let gender of genderOptions"
+              [value]="gender.value"
+              >{{ gender.label | titlecase }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </td>
+
+      <td>
+        <mat-form-field>
+          <mat-label>Nationality</mat-label>
+          <input readonly matInput formControlName="nationality" />
+        </mat-form-field>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <mat-form-field>
+          <mat-label>Preferred Language</mat-label>
+          <mat-select formControlName="language" disabled>
+            <mat-option
+              *ngFor="let language of languageOptions"
+              [value]="language.value"
+              >{{ language.label | titlecase }}</mat-option
+            >
+          </mat-select>
+        </mat-form-field>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <mat-panel-title>Diagnosis</mat-panel-title>
+      </td>
+      <td>
+        <mat-form-field class="example-full-width1">
+          <mat-label>Diagnosis</mat-label>
+          <input matInput formControlName="diagnosis" placeholder="Diagnosis" />
+        </mat-form-field>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <mat-panel-title>Vitals Last Recorded</mat-panel-title>
+      </td>
+      <td>
+        <mat-form-field class="example-full-width1">
+          <mat-label>Vitals Last Recorded</mat-label>
+          <input
             matInput
-            formControlName="firstCtrl"
-            disabled
-            value="Nationality"
+            formControlName="vitalsLastRecorded"
+            placeholder="Vitals Last Recorded	
+          "
           />
         </mat-form-field>
       </td>
     </tr>
 
     <tr>
-      <td><mat-panel-title> Date Of Assessment</mat-panel-title></td>
+      <td>
+        <mat-panel-title>Referring Physician</mat-panel-title>
+      </td>
       <td>
         <mat-form-field class="example-full-width1">
-          <mat-label> Date Of Assessment</mat-label>
+          <mat-label>Referring Physician</mat-label>
           <input
             matInput
-            formControlName="firstCtrl"
-            disabled
-            value="Date Of Assessment"
+            formControlName="referringPhysician"
+            value="Referring Physician"
           />
         </mat-form-field>
       </td>
     </tr>
+
     <tr>
-      <td><mat-panel-title> Sports Engaged In</mat-panel-title></td>
+      <td>
+        <mat-panel-title>Mode Of Payment</mat-panel-title>
+      </td>
       <td>
         <mat-form-field class="example-full-width1">
-          <mat-label> Sports Engaged In</mat-label>
+          <mat-label>Mode Of Payment</mat-label>
+          <mat-select formControlName="modeOfPayment">
+            <mat-option
+              *ngFor="let modeOfPayment of modeOfPaymentOptions"
+              [value]="modeOfPayment.value"
+              >{{ modeOfPayment.label | titlecase }}</mat-option
+            >
+          </mat-select>
+        </mat-form-field>
+      </td>
+    </tr>
+
+    <tr>
+      <td><mat-panel-title>Treating Therapist</mat-panel-title></td>
+      <td>
+        <mat-form-field>
+          <mat-label>Treating Therapist</mat-label>
           <input
+            type="text"
+            placeholder="Treating Therapist"
+            aria-label="Treating Therapist"
             matInput
-            formControlName="firstCtrl"
-            disabled
-            value="Sports Engaged In"
+            required
+            formControlName="treatingTherapist"
+            [matAutocomplete]="auto2"
+            (keyup)="onTherapistSearch($event.target.value)"
           />
-        </mat-form-field>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <mat-panel-title> Level of Involvement</mat-panel-title>
-      </td>
-      <td>
-        <mat-form-field class="example-full-width1">
-          <mat-label> Level of Involvement</mat-label>
-          <input
-            matInput
-            formControlName="firstCtrl"
-            disabled
-            value="Level of Involvement"
-          />
-        </mat-form-field>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <mat-panel-title> Club/City/Country/Location</mat-panel-title>
-      </td>
-      <td>
-        <mat-form-field class="example-full-width1">
-          <mat-label>Club/City/Country/Location</mat-label>
-          <input
-            matInput
-            formControlName="firstCtrl"
-            disabled
-            value="Club/City/Country/Location"
-          />
-        </mat-form-field>
-      </td>
-    </tr>
-    <tr>
-      <td><mat-panel-title> Coach</mat-panel-title></td>
-      <td>
-        <mat-form-field class="example-full-width1">
-          <mat-label> Coach</mat-label>
-          <input matInput formControlName="firstCtrl" disabled value=" Coach" />
-        </mat-form-field>
-      </td>
-    </tr>
-    <tr>
-      <td><mat-panel-title> S&C</mat-panel-title></td>
-      <td>
-        <mat-form-field class="example-full-width1">
-          <mat-label> S&C</mat-label>
-          <input matInput formControlName="firstCtrl" disabled value=" S&C" />
+          <mat-autocomplete
+            #auto2="matAutocomplete"
+            (optionSelected)="onTherapistSelect($event)"
+          >
+            <mat-option
+              *ngFor="let option of therapistOptions ?? []"
+              [value]="option"
+            >
+              {{ option.firstName }} {{ option.lastName }}
+            </mat-option>
+          </mat-autocomplete>
         </mat-form-field>
       </td>
     </tr>
@@ -132,7 +182,13 @@
     >
       Reset
     </button>
-    <button mat-button mat-raised-button color="primary" (click)="onNext()">
+    <button
+      mat-button
+      mat-raised-button
+      color="primary"
+      [disabled]="form?.invalid"
+      (click)="onNext()"
+    >
       Next
     </button>
   </div>

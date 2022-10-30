@@ -1,6 +1,7 @@
-import { EventEmitter, Input, Output } from '@angular/core';
+import { Directive, EventEmitter, Input, Output } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 
+@Directive()
 export class PhysioFormBase {
   @Input() form = new FormGroup({});
   @Output() reset = new EventEmitter();

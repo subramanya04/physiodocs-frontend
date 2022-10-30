@@ -65,12 +65,13 @@ table.Border th {
   border-radius: 10px;
 }
 
-.example-full-width {
-  width: 100%;
-}
 .example-full-width1 {
   width: 250%;
 }
 .example-full-width2 {
   width: 400%;
+}
+
+:host::ng-deep .example-full-width {
+  width: 100%;
 }
