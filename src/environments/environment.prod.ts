@@ -11,5 +11,5 @@ export const environment = {
     measurementId: 'G-NYGXB63DCC'
   },
   mailApi: '/assets/list.json',
-  baseUrl: 'https://physiodocs.net:8000/physiodocs-service'
+  baseUrl: 'https://physiodocs.net/physiodocs-service'
 };
