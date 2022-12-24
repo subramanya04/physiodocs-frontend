@@ -16,7 +16,7 @@ export const environment = {
     measurementId: 'G-NYGXB63DCC'
   },
   mailApi: '/assets/list.json',
-  baseUrl: 'http://localhost:8000/physiodocs-service'
+  baseUrl: 'https://physiodocs.net:8000/physiodocs-service'
 };
 export const palete = {
   primary: '#D32F2F',
