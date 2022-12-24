@@ -6,7 +6,7 @@
     "ng": "./node_modules/.bin/ng",
     "start": "./node_modules/.bin/ng serve --port 5000",
     "build": "./node_modules/.bin/ng build",
-    "build:prod": "./node_modules/.bin/ng build --prod",
+    "build:prod": "./node_modules/.bin/ng build --configuration production",
     "build:ci": "npm run build:prod",
     "test": "./node_modules/.bin/ng test",
     "lint": "./node_modules/.bin/ng lint",
